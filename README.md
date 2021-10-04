@@ -1,2 +1,2 @@
 # Neural-Networks-and-Deep-Learning
-[link to my code](https://kokes.github.io/nbviewer.js/viewer.html#aHR0cHM6Ly9naXRodWIuY29tL0Fmc2FuZWgtS2FyYW1pL05ldXJhbC1OZXR3b3Jrcy1hbmQtRGVlcC1MZWFybmluZw==)
+[link to my code](file:///C:/Users/Administrator/Downloads/Logistic_Regression_with_a_Neural_Network_mindset%20(1).html)
