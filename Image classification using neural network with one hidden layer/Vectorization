@@ -1,3 +1,0 @@
-# Reshape the training and test data sets so that images of size (a, b, 3) are flattened into single vectors of shape (a ∗ b ∗ 3, 1)
-train_set_x_flatten =train_set_x_orig.reshape(train_set_x_orig.shape[0],-1).T  
-test_set_x_flatten =test_set_x_orig.reshape(test_set_x_orig.shape[0],-1).T
