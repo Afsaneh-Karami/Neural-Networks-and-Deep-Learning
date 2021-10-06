@@ -29,9 +29,12 @@ In this file, I used Neural Network (NN) with one hidden layer to classify cat i
    * Using update_parameters fuction to update parameters W1, W2 ,b1 , and b2 with the learning_rate = 1.2 (GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/update_parameters ))<br />
      parameters =update_parameters(parameters, grads, learning_rate = 1.2)
 7) writing Predict fuction to predict result by the neural network model (GOTO [predict link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/predict))<br />
-     predictions =(A2>0.5)
-8) Applying nn_model to test dataset to classify cat images and then compute the accuracy of it (GOTO [Apply nn_model on test set link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/test%20nn_model%20on%20test%20set))
-     predictions = predict(parameters, X)
+     predictions=predict(parameters, X)
+8) Applying nn_model to test dataset to classify cat images and then compute the accuracy of it (GOTO [Apply nn_model on test set link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/test%20nn_model%20on%20test%20set))<br />
+     X=test_set_x_orig<br />
+     Y=test_set_y_orig<br />
+     parameters = nn_model(X, Y, n_h = 4, num_iterations = 10000, print_cost=True)<br />
+     predictions = predict(parameters, X)<br />
   
 
     
