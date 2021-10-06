@@ -1,6 +1,6 @@
 # Using the training set to calculate the value of W1,W2,b1,b2 base on the gradient desent and then predict the picture of test set and calculate the accuracy of nn-model
 X=test_set_x_orig
-Y=test_set_y
+Y=test_set_y_orig
 parameters = nn_model(X, Y, n_h = 4, num_iterations = 10000, print_cost=True)
 predictions = predict(parameters, X)
 print ('Accuracy: %d' % float((np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100) + '%')
