@@ -1,5 +1,0 @@
-# Package imports
-import numpy as np                   #package for scientific computing with Python
-import h5py                          #package to interact with a dataset that is stored on an H5 file
-import matplotlib.pyplot as plt      #package to plot graphs in Python
-from PIL import Image                #It is a library for the Python that use for opening, manipulating, and saving many different image file formats
