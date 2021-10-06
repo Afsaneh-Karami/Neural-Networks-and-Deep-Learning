@@ -1,4 +1,4 @@
-## Defining an 3-layer Neural Network to classify cat images<br />
+## Defining a 3-layer Neural Network to classify cat images<br />
 
 In this file I used Neural Network with one hidden layer to classify cat images. Traing set was used to found the parameters W1,W2,b1, and b2 and applied these parameters to predict test set images. I wrote my code in Jupyter notebook. The order of functions to make a nueral network model for classification:
 
