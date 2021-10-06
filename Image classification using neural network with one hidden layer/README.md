@@ -15,10 +15,13 @@ In this file, I used Neural Network (NN) with one hidden layer to classify cat i
   
 
 6) Applying loop of Gradient descent for num_iterations to find the parameters W1, W2 ,b1 , and b2 which minimize the cost function J (GOTO [nn_model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/neural%20network%20model) (line: 12-20 ): 
-   * Using forward propagation to calculate Z1, A1, Z2, and A2 (GOTO [Forward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/forward%20propagation )
+   * Using forward propagation to calculate Z1, A1, Z2, and A2 (GOTO [Forward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/forward%20propagation ))
      A2, cache =forward_propagation(X, parameters) 
-   * Using compute_cost fuction (GOTO [compute_cost link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/compute%20cost )
+     
+   * Using compute_cost fuction (GOTO [compute_cost link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/compute%20cost ))
      cost =compute_cost(A2, Y)
+
+     
    * Using backward propagation to calculate dW1,dW2,db1, and db2 (GOTO [backward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/backward%20propagation )
      grads =backward_propagation(parameters, cache, X, Y)
    * Using update_parameters fuction to update parameters W1,W2,b1, and b2 with the learning_rate = 1.2 (GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/update_parameters )
