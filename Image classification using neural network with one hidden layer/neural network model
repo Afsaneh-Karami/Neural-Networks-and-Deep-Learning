@@ -3,8 +3,8 @@ def nn_model(X, Y, n_h, num_iterations = 10000, print_cost=False):
 # Loading the data
 train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig= load_dataset()
 
-# calculation of units of each layer
-n_x, n_h, n_y=layer_sizes(train_set_x_orig, train_set_y_orig)
+# calculation of units of input and output layer
+n_x, n_y=layer_sizes(train_set_x_orig, train_set_y_orig)
 
 # Initialize parameters W1.b1,W2,b2
 parameters =initialize_parameters(n_x, n_h, n_y)
@@ -25,4 +25,4 @@ parameters =update_parameters(parameters, grads, learning_rate = 1.2)
 if print_cost and i % 1000 == 0:
             print ("Cost after iteration %i: %f" %(i, cost))
 
-    return parameters
+return parameters
