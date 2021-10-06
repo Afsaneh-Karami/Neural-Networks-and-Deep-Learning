@@ -1,0 +1,1 @@
+def nn_model(X, Y, n_h, num_iterations = 10000, print_cost=False):
