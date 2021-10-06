@@ -6,7 +6,8 @@ In this file, I used Neural Network (NN) with one hidden layer to classify cat i
 2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/load%20data) ): 
    * train_x, train_y, test_x, test_y = load_data()
 3) Victorize the train_x and train_y (GOTO [vectorization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/vectorization )):
-     v = image.reshape(image.shape[0] * image.shape[1] * image.shape[2], 1)
+   * v = image.reshape(image.shape[0] * image.shape[1] * image.shape[2], 1)
+     
 4) Define the size of input and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/layer_sizes) ): 
    * n_x, n_y=layer_sizes(train_set_x_orig, train_set_y_orig)
 5)Initialize parameters W1.b1,W2,b2 with arandom value(GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/initialize_parameters) )
