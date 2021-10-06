@@ -10,9 +10,10 @@ In this file, I used Neural Network (NN) with one hidden layer to classify cat i
      
 4) Define the size of input and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/layer_sizes) ): 
    * n_x, n_y=layer_sizes(train_set_x_orig, train_set_y_orig))
-  
 5)Initialize parameters W1.b1,W2,b2 with arandom value(GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/initialize_parameters) )
    *parameters =initialize_parameters(n_x, n_h, n_y) # n_h is the units of hidden layer
+  
+
 6) Applying Loop of Gradient descent for num_iterations to find the parameters W1,W2,b1, and b2 which minimize the cost function J (GOTO [nn_model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/neural%20network%20model) (line: 12-20 ): 
    * Using Forward propagation to calculate Z1,A1,Z2, and A2 (GOTO [Forward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/forward%20propagation )
      A2, cache =forward_propagation(X, parameters) 
