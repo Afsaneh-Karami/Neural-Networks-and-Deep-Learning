@@ -1,6 +1,6 @@
 ## Defining a 3-layer Neural Network to classify cat images<br />
 
-In this file I used Neural Network with one hidden layer to classify cat images. Training set was used to found the parameters W1,W2,b1, and b2 and applied these parameters to predict test set images. I wrote my code in Jupyter notebook. The order of functions to make a nueral network model for classification:
+In this file, I used Neural Network (NN) with one hidden layer to classify cat images. The training set was used to found the parameters W1, W2, b1, and b2 of NN and then applied the model to predict test set images. I wrote my code in Jupyter notebook. The order of functions to make a neural network model for classification:
 
 1) Begin by importing required packages (GOTO [package link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/import%20package) )
 2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/load%20data) ): 
