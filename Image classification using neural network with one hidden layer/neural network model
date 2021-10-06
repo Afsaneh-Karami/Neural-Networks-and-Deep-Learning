@@ -1,1 +1,4 @@
 def nn_model(X, Y, n_h, num_iterations = 10000, print_cost=False):
+## Loading the data
+train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig= load_dataset()
+
