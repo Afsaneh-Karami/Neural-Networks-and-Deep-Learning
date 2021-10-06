@@ -1,8 +1,8 @@
-######Defining an Three-layer Neural Network to classify cat images
+####Defining a Three-layer Neural Network to classify cat images
 
-Usinng Jupyter notebook. The order of functions to make a nueral network model for classification:
+In this file I used Neural Network with one hidden layer to classify cat image. Traing set was used to found the parameters W1,W2,b1, and b2 and applied these parameters to predict test set images. I wrote my code in Jupyter notebook. The order of functions to make a nueral network model for classification:
 
-Begin by importing required packages (GOTO a link )
+1. importing required packages (GOTO a link )
 
 Load the dataset :
 
