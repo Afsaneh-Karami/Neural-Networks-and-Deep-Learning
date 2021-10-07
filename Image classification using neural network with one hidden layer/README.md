@@ -5,6 +5,7 @@ In this file, I used Neural Network (NN) with one hidden layer to classify cat i
 1) Begin by importing required packages (GOTO [package link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/import%20package) )
 2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/load%20data) ): 
    * train_x, train_y, test_x, test_y = load_data()
+   * file: train_catvnoncat.h5 and test_catvnoncat.h5 were used for the training set and test set respectively. you can find them in the Datasets folder.
 3) Victorize the train_x and train_y (GOTO [vectorization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/vectorization )):
    * v = image.reshape(image.shape[0] * image.shape[1] * image.shape[2], 1)
      
