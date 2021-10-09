@@ -1,0 +1,15 @@
+def linear_activation_backward(dA, cache, activation):
+linear_cache, activation_cache = cache
+A_prev, W, b = cache
+m = A_prev.shape[1]
+if activation == "relu":
+        dZ =relu_backward(dA, activation_cache)
+        dW =(1/m)*np.dot(dZ,A_prev.T)
+        db =(1/m)*np.sum(dZ,axis=1,keepdims=True)
+        dA_prev =np.dot(W.T,dZ)
+elif activation == "sigmoid":
+        dZ =sigmoid_backward(dA, activation_cache)
+        dW =(1/m)*np.dot(dZ,A_prev.T)
+        db =(1/m)*np.sum(dZ,axis=1,keepdims=True)
+        dA_prev =np.dot(W.T,dZ)        
+return dA_prev, dW, db
