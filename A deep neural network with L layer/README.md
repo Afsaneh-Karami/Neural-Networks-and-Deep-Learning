@@ -1,40 +1,29 @@
 ## Defining a L-layer Neural Network to classify cat images<br />
 
-In this file, I used Neural Network (NN) with three hidden layer to classify cat images. The training set was used to found the parameters W and b of NN and then applied the model to testset to classify images as cat or non-cat. I wrote my code in Jupyter notebook.<br />
+In this file, I used Neural Network (NN) with three hidden layer to classify cat images. The training set (train_catvnoncat.h5) was used to found the parameters W and b of NN and then applied the model to testset (test_catvnoncat.h5) to classify images as cat or non-cat. I wrote my code in Jupyter notebook.<br />
 The order of functions to make a L-Layer NN model for classification :
 
-1) Begin by importing required packages (GOTO [package link]() )
-2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/load%20data) ): 
+1) Begin by importing required packages (GOTO [package link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/import%20package) )
+2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/load_data): 
    * train_x, train_y, test_x, test_y = load_data()
    * file: train_catvnoncat.h5 and test_catvnoncat.h5 were used for the training set and test set respectively. you can find them in the Datasets folder.
-3) Victorize the train_x and train_y (GOTO [vectorization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/vectorization )):
-   * v = image.reshape(image.shape[0] * image.shape[1] * image.shape[2], 1)
-     
-4) Define the size of input and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/layer_sizes) ): 
-   * n_x, n_y=layer_sizes(train_set_x_orig, train_set_y_orig))
-5)Initialize parameters W1.b1,W2,b2 with arandom value(GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/initialize_parameters) )
-   *parameters =initialize_parameters(n_x, n_h, n_y) # n_h is the units of hidden layer
-  
-
-6) Applying loop of Gradient descent for num_iterations to find the parameters W1, W2 ,b1 , and b2 which minimize the cost function J (GOTO [nn_model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/neural%20network%20model) (line: 12-20 ): 
-   * Using forward propagation to calculate Z1, A1, Z2, and A2 (GOTO [Forward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/forward%20propagation ))<br />
-     A2, cache =forward_propagation(X, parameters)
-   
-     
-     
-   * Using compute_cost fuction (GOTO [compute_cost link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/compute%20cost ))<br />
-     cost =compute_cost(A2, Y)
-
-     
-   * Using backward propagation to calculate dW1, dW2, db1, and db2 (GOTO [backward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/backward%20propagation ))<br />
-     grads =backward_propagation(parameters, cache, X, Y)
-   * Using update_parameters fuction to update parameters W1, W2 ,b1 , and b2 with the learning_rate = 1.2 (GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/update_parameters ))<br />
-     parameters =update_parameters(parameters, grads, learning_rate = 1.2)
-7) writing Predict fuction to predict result by the neural network model (GOTO [predict link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/predict))<br />
-    * predictions=predict(parameters, X)
-8) Applying nn_model to test dataset to classify cat images and then compute the accuracy of it (GOTO [Apply nn_model on test set link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Image%20classification%20using%20neural%20network%20with%20one%20hidden%20layer/test%20nn_model%20on%20test%20set))<br />
-     * X=test_set_x_orig<br />
-     * Y=test_set_y_orig<br />
-    * parameters = nn_model(X, Y, n_h = 4, num_iterations = 10000, print_cost=True)<br />
-    * predictions = predict(parameters, X)<br />
+   * reshaping of train and test datasets and Standardize were done in  load_data fuction.    
+3) Define the size of input, hidden, and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/predict%20train%20and%20test%20datasets) )(line: 4 ): 
+   * layers_dims = [12288, 20, 7, 5, 1] 
+4) Running the L_layer_model fuction which does all forward and bachward prpagation and gives us parameters, costs fuction (GOTO [L_layer_model](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/L_layer_model) )
+   * parameters, costs = L_layer_model(X, Y, layers_dims, learning_rate, num_iterations , print_cost=False)
+   * Calculation steps in L_layer_model including: <br />
+           4.1. Initialize parameters W and B with arandom value for all layers (GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/initialize_parameters) )<br />
+                parameters =initialize_parameters(layers_dims)<br />
+           4.2. Using forward propagation to calculate Z and A based on the trainig sets (GOTO [linear_activation_forward (for L layer) link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/linear_activation_forward%20(for%20L%20layer))<br />
+                AL, caches =L_model_forward(X, parameters)
+           4.3. Using compute_cost fuction (GOTO [Cost Function link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/Cost%20Function ))<br />
+                cost =compute_cost(AL, Y)
+           4.4. Using backward propagation to calculate dA, dW, and db (GOTO [linear_activation_backward (for L layer) link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/linear_activation_backward%20(for%20L%20layer)))<br />
+                grads =L_model_backward(AL, Y, caches)
+           4.5. Using update_parameters fuction to update parameters W and b with the specified learning_rate (GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/update_parameters))<br />
+                parameters =update_parameters(parameters, grads, learning_rate)
+  5) Using Predict fuction to estimate the result and accuracy of neural network model for datasets (GOTO [predict and accuracy link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/predict%20and%20accuracy))<br />
+    * predictions_train = predict(train_x, train_y, parameters)
+    * predictions_test = predict(test_x, test_y, parameters)   
   
