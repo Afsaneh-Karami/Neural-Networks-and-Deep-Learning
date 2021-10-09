@@ -1,0 +1,14 @@
+def L_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 3000, print_cost=False):
+costs = [] 
+parameters =initialize_parameters(layers_dims)
+for i in range(0, num_iterations):
+     AL, caches =L_model_forward(X, parameters)
+     cost =compute_cost(AL, Y)
+     grads =L_model_backward(AL, Y, caches)
+     parameters =update_parameters(parameters, grads, learning_rate)
+     if print_cost and i % 100 == 0 or i == num_iterations - 1:
+            print("Cost after iteration {}: {}".format(i, np.squeeze(cost)))
+     if i % 100 == 0 or i == num_iterations:
+            costs.append(cost)
+    
+    return parameters, costs
