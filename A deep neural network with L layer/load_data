@@ -8,11 +8,10 @@ test_set_x_orig = np.array(test_dataset["test_set_x"][:]) # your test set featur
 test_set_y_orig = np.array(test_dataset["test_set_y"][:]) # your test set labels
 
 classes = np.array(test_dataset["list_classes"][:]) # the list of classes
-    
+
+# Reshape the training and test examples    
 train_y = train_set_y_orig.reshape((1, train_set_y_orig.shape[0]))
 test_y = test_set_y_orig.reshape((1, test_set_y_orig.shape[0]))
-    
-# Reshape the training and test examples
 train_x_flatten = train_x_orig.reshape(train_x_orig.shape[0], -1).T   
 test_x_flatten = test_x_orig.reshape(test_x_orig.shape[0], -1).T
 
