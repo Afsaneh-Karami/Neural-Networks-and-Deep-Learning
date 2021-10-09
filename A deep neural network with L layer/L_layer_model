@@ -1,4 +1,4 @@
-def L_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 3000, print_cost=False):
+def L_layer_model(X, Y, layers_dims, learning_rate, num_iterations, print_cost=False):
 costs = [] 
 parameters =initialize_parameters(layers_dims)
 for i in range(0, num_iterations):
