@@ -8,5 +8,5 @@ parameters, costs=L_layer_model(train_x, train_y, layers_dims, learning_rate = 0
 plot_costs(costs, learning_rate)
 
 #prediction and accuracy of training and test datasets
-predictions_train = predict(train_x_flatten, train_y, parameters)
-predictions_test = predict(test_x_orig, test_y, parameters)
+predictions_train = predict(train_x, train_y, parameters)
+predictions_test = predict(test_x, test_y, parameters)
