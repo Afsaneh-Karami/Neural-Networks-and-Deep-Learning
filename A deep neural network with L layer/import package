@@ -1,0 +1,9 @@
+import numpy as np                       # the main package for scientific computing with Python
+import h5py                              # h5py package is a Pythonic interface to the HDF5 binary data format. Our datasets are h5 format.
+import matplotlib.pyplot as plt          # a plotting library
+%matplotlib inline
+plt.rcParams['figure.figsize'] = (5.0, 4.0) # set default size of plots
+plt.rcParams['image.interpolation'] = 'nearest'
+plt.rcParams['image.cmap'] = 'gray'
+%load_ext autoreload
+%autoreload 2
