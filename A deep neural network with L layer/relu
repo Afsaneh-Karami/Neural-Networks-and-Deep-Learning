@@ -1,3 +1,4 @@
 def relu(Z):
 A = np.maximum(0,Z)
-return A,Z
+cache = Z 
+return A, cache
