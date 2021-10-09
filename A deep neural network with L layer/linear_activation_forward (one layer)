@@ -1,0 +1,11 @@
+def linear_activation_forward(A_prev, W, b, activation):    # This code can calculate Z and A based on the activation fuction sigmoid or relu.
+Z =np.dot(W,A)+b
+if activation == "sigmoid":    
+        A, activation_cache =sigmoid(Z)
+        linear_cache = (A, W, b)                            # This is a tuple of (A, W, b) which is used for backward propagation        
+elif activation == "relu":
+        A, activation_cache =relu(Z)
+        linear_cache = (A, W, b)
+cache = (linear_cache, activation_cache)                    # This is a tuple of ((A, W, b),activation_cache) which is used for backward propagation 
+
+return A, cache
