@@ -1,3 +1,4 @@
 def sigmoid(Z):
 A = 1/(1+np.exp(-Z))
-return A,Z
+cache = Z
+return A,cache
