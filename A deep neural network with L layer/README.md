@@ -19,12 +19,12 @@ The order of functions to make an L-Layer NN model for classification :
                 AL, caches =L_model_forward(X, parameters)<br />
                 Activation function for layer 1,2, and 3 is relu, and for the last layer the sigmoid fuction is used.<br /> 
            4.3. Using compute_cost fuction (GOTO [Cost Function link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/Cost%20Function ))<br />
-                cost =compute_cost(AL, Y)
+                cost =compute_cost(AL, Y)<br />
            4.4. Using backward propagation to calculate dA, dW, and db (GOTO [linear_activation_backward (for L layer) link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/linear_activation_backward%20(for%20L%20layer)))<br />
-                grads =L_model_backward(AL, Y, caches)
+                grads =L_model_backward(AL, Y, caches)<br />
            4.5. Using update_parameters fuction to update parameters W and b with the specified learning_rate (GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/update_parameters))<br />
-                parameters = update_parameters(parameters, grads, learning_rate)
+                parameters = update_parameters(parameters, grads, learning_rate)<br />
   5) Using Predict fuction to estimate the accuracy of neural network model for datasets (GOTO [predict and accuracy link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/predict%20and%20accuracy))<br />
-    * predictions_train = predict(train_x, train_y, parameters)
-    * predictions_test = predict(test_x, test_y, parameters)   
+    * predictions_train = predict(train_x, train_y, parameters)<br />
+    * predictions_test = predict(test_x, test_y, parameters) <br />  
   
