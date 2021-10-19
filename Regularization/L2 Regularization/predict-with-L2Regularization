@@ -14,7 +14,7 @@ def predict-with-L2Regularization(X, y, parameters):
     p = np.zeros((1,m), dtype = np.int)
     
     # Forward propagation
-    a3, caches = forward_propagation_wirh_L2 regularization (X, parameters)
+    a3, caches = forward_propagation_with_L2 regularization (X, parameters)
     
     # convert probas to 0/1 predictions
     for i in range(0, a3.shape[1]):
