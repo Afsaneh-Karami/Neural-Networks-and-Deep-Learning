@@ -32,7 +32,7 @@ def model-with_L2Regularization(X, Y, learning_rate, num_iterations, print_cost 
     for i in range(0, num_iterations):
 
         # Forward propagation: LINEAR -> RELU -> LINEAR -> RELU -> LINEAR -> SIGMOID.
-        a3, cache = forward_propagation_wirh_L2 regularization (X, parameters)
+        a3, cache = forward_propagation_with_L2 regularization (X, parameters)
         
         # Cost function
         cost = compute_cost_with_L2regularization(A3, Y, parameters, lambd)
