@@ -1,4 +1,4 @@
-def backward_propagation_with_regularization(X, Y, cache, lambd):
+def backward_propagation_with_L2regularization(X, Y, cache, lambd):
     """
     Implements the backward propagation of our baseline model to which we added an L2 regularization.
     
