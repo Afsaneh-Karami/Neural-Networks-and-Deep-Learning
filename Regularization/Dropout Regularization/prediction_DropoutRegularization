@@ -1,0 +1,13 @@
+#loading dataset
+train_X, train_Y, test_X, test_Y = load_2D_dataset()
+X=train_X
+Y=train_Y
+
+#learning the NN model
+parameters =model-with_DropoutRegularization(X, Y, learning_rate = 0.3, num_iterations = 30000, print_cost = True, keep_prob = 0.86)
+
+#prediction
+print ("On the training set:")
+predictions_train = predict-with-DropoutRegularization(train_X, train_Y, parameters)
+print ("On the test set:")
+predictions_test = predict-with-DropoutRegularization(test_X, test_Y, parameters)
