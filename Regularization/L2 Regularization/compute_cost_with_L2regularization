@@ -1,6 +1,5 @@
 def compute_cost_with_L2regularization(A3, Y, parameters, lambd):
     """
-    Implement the cost function with L2 regularization. See formula (2) above.
     
     Arguments:
     A3 -- post-activation, output of forward propagation, of shape (output size, number of examples)
