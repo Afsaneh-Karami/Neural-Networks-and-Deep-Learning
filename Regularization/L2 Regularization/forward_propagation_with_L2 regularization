@@ -1,4 +1,4 @@
-def forward_propagation_wirh_L2 regularization (X, parameters):
+def forward_propagation_with_L2 regularization (X, parameters):
     """
     Arguments:
     X -- input dataset, of shape (input size, number of examples)
