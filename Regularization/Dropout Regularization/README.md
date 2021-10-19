@@ -14,7 +14,7 @@ The order of functions to make an L-Layer NN model with Dropout Regularization f
    * file: "data.mat" was used for the train set and test set respectively. you can find it in the Datasets folder. 
 3) Define the size of input, hidden, and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/model_with_DropoutRegularization) (line: 21 )
    * layers_dims = [X.shape[0], 20, 3, 1] <br /><br />
-4) Running the model-with_DropoutRegularization fuction which does all forward and backward propagation and gives parameters. (GOTO [model-with_DropoutRegularization](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/model_with_DropoutRegularization) )
+4) Running the model-with_DropoutRegularization fuction which does all forward and backward propagation and gives parameters. <br />(GOTO [model-with_DropoutRegularization](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/model_with_DropoutRegularization) )
    * parameters = model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_cost = True, keep_prob)<br />
    * Calculation steps of model-with_DropoutRegularization function including: <br /><br />
             4.1. Initialize parameters W and b with one of three fuctions ("zeros","random" or "he") for all layers (GOTO [Initialization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/Initialization) )<br />
@@ -24,15 +24,15 @@ The order of functions to make an L-Layer NN model with Dropout Regularization f
                 parameters = initialize_parameters_zeros(layers_dims)<br /> 
                    Note:Three fuctions are in initialization folder (GOTO [Initialization](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/Initialization))<br /> <br /> 
            4.2. Using forward_propagation_with_dropout to calculate Z and A based on the trainig sets <br />(GOTO [forward_propagation_with_dropout link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/forward_propagation_with_dropout))<br />
-                A3, caches = forward_propagation_with_dropout(X, parameters, keep_prob)<br />
+                A3, caches = forward_propagation_with_dropout (X, parameters, keep_prob)<br />
                 Activation function for layer 1 and 2 is relu, and for the last layer the sigmoid fuction is used.<br /><br /> 
            4.3. Using compute_cost_with_DropoutRegularization fuction to calculate cost <br />(GOTO [compute_cost_with_DropoutRegularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/compute_cost_with_DropoutRegularization ))<br />
-                cost = compute_cost_with_DropoutRegularization(A3, Y, parameters) <br /><br />
+                cost = compute_cost_with_DropoutRegularization (A3, Y, parameters) <br /><br />
            4.4. Using backward_propagation_with_dropout to calculate dA, dW, and db (GOTO [backward_propagation_with_dropout link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/Backward_propagation_with_dropout))<br />
-                gradients  = backward_propagation_with_dropout(X, Y, cache, keep_prob)<br /><br />
-           4.5. Using update_parameters fuction to update parameters W and b with the specified learning_rate (GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/update_parameters))<br />
-                parameters = update_parameters(parameters, gradients , learning_rate)<br /><br />
-  5) Using predict-with-DropoutRegularization fuction to estimate the accuracy of neural network model for datasets (GOTO [Predict-with-Dropour Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/Predict-with-Dropour%20Regularization)<br />
-    * predict-with-DropoutRegularization(X, y, parameters) <br />
+                gradients  = backward_propagation_with_dropout (X, Y, cache, keep_prob)<br /><br />
+           4.5. Using update_parameters fuction to update parameters W and b with the specified learning_rate <br />(GOTO [update_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/update_parameters))<br />
+                parameters = update_parameters (parameters, gradients , learning_rate)<br /><br />
+5) Using predict-with-DropoutRegularization fuction to estimate the accuracy of neural network model for datasets <br /> (GOTO [Predict-with-Dropour Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/Predict-with-Dropour%20Regularization))<br />
+   * p = predict-with-DropoutRegularization (X, y, parameters) <br />
       
   
