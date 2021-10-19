@@ -6,20 +6,17 @@ Note 2: The keep_prob for input layer is 1, because we do not want to lose the i
 Note 3: Not use drop out at test time because we do not want our output to be random (keep_prob=1).<br />
 ![Capture](https://user-images.githubusercontent.com/78735911/137906920-87d2585c-ca4a-47bf-91e4-2f8c7832d352.JPG)
 
-The order of functions to make an L-Layer NN model for classification :
+The order of functions to make an L-Layer NN model with Dropout Regularization for classification :
 
-1) Begin by importing required packages (GOTO [package link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/import%20package))<br /><br />
-2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/load_data)) 
-   * train_x, train_y, test_x, test_y = load_data()
-   * file: train_catvnoncat.h5 and test_catvnoncat.h5 were used for the training set and test set respectively. you can find them in the Datasets folder.
-   * Reshaping of train and test datasets and standardization were done in load_data fuction. <br /><br />   
-3) Define the size of input, hidden, and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/predict%20train%20and%20test%20datasets) )(line: 4 )
-   * layers_dims = [12288, 20, 7, 5, 1] <br /><br />
-4) Running the L_layer_model fuction which does all forward and backward propagation and gives parameters and costs fuction. (GOTO [L_layer_model](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/L_layer_model) )
-   * In the following picture you can see the forward and backward propagation:<br /> 
-<img width="648" alt="final outline" src="https://user-images.githubusercontent.com/78735911/136697715-dab597cc-5706-47f9-9cde-5684302c3362.png"><br />
-   * parameters, costs = L_layer_model (X, Y, layers_dims, learning_rate, num_iterations , print_cost=False)<br />
-   * Calculation steps of L_layer_model function including: <br /><br />
+1) Begin by importing required packages (GOTO [package link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/import%20package))<br /><br />
+2) Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Loading%20the%20Dataset)) 
+   * train_x, train_y, test_x, test_y = load_2D_dataset()
+   * file: data.mat was used for the training set and test set respectively. you can find it in the Datasets folder. 
+3) Define the size of input, hidden, and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/model_with_DropoutRegularization)(line: 21 )
+   * layers_dims = [X.shape[0], 20, 3, 1] <br /><br />
+4) Running the model-with_DropoutRegularization fuction which does all forward and backward propagation and gives parameters. (GOTO [model-with_DropoutRegularization](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/model_with_DropoutRegularization) )
+   * parameters = model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_cost = True, keep_prob)<br />
+   * Calculation steps of model-with_DropoutRegularization function including: <br /><br />
             4.1. Initialize parameters W and b with a random value for all layers (GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/initialize_parameters) )<br />
                 parameters = initialize_parameters (layers_dims)<br />     
            4.2. Using forward propagation to calculate Z and A based on the trainig sets (GOTO [linear_activation_forward (for L layer) link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/linear_activation_forward%20(for%20L%20layer))<br />
