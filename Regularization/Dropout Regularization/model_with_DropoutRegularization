@@ -15,7 +15,7 @@ def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_
     parameters -- parameters learned by the model. They can then be used to predict.
     """
         
-    grads = {}
+    gradients = {}
     costs = []                            # to keep track of the cost
     m = X.shape[1]                        # number of examples
     layers_dims = [X.shape[0], 20, 3, 1]
@@ -38,7 +38,7 @@ def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_
         cost = compute_cost_with_DropoutRegularization(a3, Y, parameters)
         
         # Backward propagation.
-        grads = backward_propagation_with_dropout(X, Y, cache, keep_prob)
+        gradients = backward_propagation_with_dropout(X, Y, cache, keep_prob)
         
         # Update parameters.
         parameters = update_parameters(parameters, grads, learning_rate)
