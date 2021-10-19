@@ -1,0 +1,20 @@
+#import package
+import numpy as np
+import matplotlib.pyplot as plt
+import sklearn                         # It is a free software machine learning library for the Python programming language
+import sklearn.datasets                # This package fetch larger datasets used by the machine learning to benchmark algorithms on data 
+import scipy.io                        # an open-source library used for solving mathematical, scientific, engineering, and technical problems
+
+#loading dataset
+train_X, train_Y, test_X, test_Y = load_2D_dataset()
+X=train_X
+Y=train_Y
+
+#learning the NN model
+parameters =model-with_L2Regularization(X, Y, learning_rate=0.3, num_iterations = 30000, print_cost = True, lambd=0.1, initialization='he')
+
+#prediction
+print ("On the training set:")
+predictions_train = predict-with-L2Regularization (train_X, train_Y, parameters)
+print ("On the test set:")
+predictions_test = predict-with-L2Regularization (test_X, test_Y, parameters)
