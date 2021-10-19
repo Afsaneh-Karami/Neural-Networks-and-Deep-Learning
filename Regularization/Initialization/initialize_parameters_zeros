@@ -16,11 +16,6 @@ def initialize_parameters_zeros(layers_dims):
     L = len(layers_dims)            # number of layers in the network
     
     for l in range(1, L):
-        #(≈ 2 lines of code)
-        # parameters['W' + str(l)] = 
-        # parameters['b' + str(l)] = 
-        # YOUR CODE STARTS HERE
         parameters['W' + str(l)] =np.zeros((layers_dims[l],layers_dims[l-1]))
         parameters['b' + str(l)] =np.zeros((layers_dims[l],1))
-        # YOUR CODE ENDS HERE
     return parameters
