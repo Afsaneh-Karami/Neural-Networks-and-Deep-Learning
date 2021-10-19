@@ -1,4 +1,4 @@
-def model-with_DropoutRegularization(X, Y, learning_rate = 0.3, num_iterations = 30000, print_cost = True, keep_prob = 0.86):
+def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_cost = True, keep_prob):
     """
     Implements a three-layer neural network: LINEAR->RELU->LINEAR->RELU->LINEAR->SIGMOID.
     
