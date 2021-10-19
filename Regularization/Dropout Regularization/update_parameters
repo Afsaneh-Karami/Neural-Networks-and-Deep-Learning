@@ -1,4 +1,4 @@
-def update_parameters(parameters, grads, learning_rate):
+def update_parameters(parameters, gradients , learning_rate):
     """
     Update parameters using gradient descent
     
