@@ -1,4 +1,4 @@
-def compute_cost_with_DropoutRegularization(A3, Y, parameters, lambd):
+def compute_cost_with_DropoutRegularization(A3, Y, parameters, lambd=0):
     """
     Implement the cost function with L2 regularization. See formula (2) above.
     
