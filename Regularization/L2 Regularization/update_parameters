@@ -1,0 +1,25 @@
+def update_parameters(parameters, gradients , learning_rate):
+    """
+    Update parameters using gradient descent
+    
+    Arguments:
+    parameters -- python dictionary containing your parameters:
+                    parameters['W' + str(i)] = Wi
+                    parameters['b' + str(i)] = bi
+    grads -- python dictionary containing your gradients for each parameters:
+                    grads['dW' + str(i)] = dWi
+                    grads['db' + str(i)] = dbi
+    learning_rate -- the learning rate, scalar.
+    
+    Returns:
+    parameters -- python dictionary containing your updated parameters 
+    """
+    
+    n = len(parameters) // 2 # number of layers in the neural networks
+
+    # Update rule for each parameter
+    for k in range(n):
+        parameters["W" + str(k+1)] = parameters["W" + str(k+1)] - learning_rate * grads["dW" + str(k+1)]
+        parameters["b" + str(k+1)] = parameters["b" + str(k+1)] - learning_rate * grads["db" + str(k+1)]
+        
+    return parameters
