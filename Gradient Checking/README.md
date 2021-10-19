@@ -22,8 +22,8 @@
    ![Capture1](https://user-images.githubusercontent.com/78735911/137983064-e2d0ce05-c400-4429-b09e-80835e91129a.JPG)<br />
     * In gradient_check_n function I used three other fuctions, dictionary_to_vector, vector_to_dictionary, and gradients_to_vector. It converts the dictionary into a vector or the vector to dictionary. As you see in the picture.
  <img width="627" alt="dictionary_to_vector" src="https://user-images.githubusercontent.com/78735911/137982751-57284551-c1e7-4940-b6e8-bbe323c44443.png">
-    * theta, keys = dictionary_to_vector(parameters) (GOTO [dictionary_to_vector link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Gradient%20Checking/dictionary_to_vector) )<br />
+    * theta, keys = dictionary_to_vector(parameters) <br />
     * The function "dictionary_to_vector()" converts the parameters dictionary into a vector called values, obtained by reshaping all parameters (W1, b1, W2, b2, W3, b3) into vectors and concatenating them. <br />
-    * theta = gradients_to_vector(gradients) (GOTO [gradients_to_vector link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Gradient%20Checking/gradients_to_vector) )<br /> 
-    * parameters = vector_to_dictionary(theta) (GOTO [vector_to_dictionary link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Gradient%20Checking/vector_to_dictionary) )<br />
+    * theta = gradients_to_vector(gradients) <br /> 
+    * parameters = vector_to_dictionary(theta) <br />
   
