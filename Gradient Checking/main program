@@ -2,7 +2,7 @@
 import numpy an np
 
 #load datasets
-X, Y, parameters = gradient_check_n_test_case()
+X, Y, parameters = datasets()
 
 #gradient checking
 cost, cache = forward_propagation_n(X, Y, parameters)
