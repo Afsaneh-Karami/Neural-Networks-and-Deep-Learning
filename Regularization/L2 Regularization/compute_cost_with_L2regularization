@@ -13,9 +13,9 @@ def compute_cost_with_L2regularization(A3, Y, parameters, lambd):
     m = Y.shape[1]
     W1 = parameters["W1"]
     W2 = parameters["W2"]
-    W3 = parameters["W3"]
-    
-    cross_entropy_cost = compute_cost(A3, Y) # This gives you the cross-entropy part of the cost
+    W3 = parameters["W3"]  
+    logprobs = np.multiply(-np.log(a3),Y) + np.multiply(-np.log(1 - a3), 1 - Y)
+    cross_entropy_cost = 1./m * np.nansum(logprobs)                                  # This gives you the cross-entropy part of the cost
     L2_regularization_cost=(1/m)*(lambd/2)*(np.sum(np.square(W1)) + np.sum(np.square(W2)) + np.sum(np.square(W3)))
     cost = cross_entropy_cost + L2_regularization_cost
     
