@@ -1,4 +1,4 @@
-def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_cost = True, keep_prob):
+def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_cost = True, keep_prob, initialization):
     """
     Implements a three-layer neural network: LINEAR->RELU->LINEAR->RELU->LINEAR->SIGMOID.
     
@@ -8,8 +8,8 @@ def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_
     learning_rate -- learning rate of the optimization
     num_iterations -- number of iterations of the optimization loop
     print_cost -- If True, print the cost every 10000 iterations
-    lambd -- regularization hyperparameter, scalar
     keep_prob - probability of keeping a neuron active during drop-out, scalar.
+    Initializer-- flag to choose which initialization to use ("zeros","random" or "he")
     
     Returns:
     parameters -- parameters learned by the model. They can then be used to predict.
@@ -21,7 +21,12 @@ def model-with_DropoutRegularization(X, Y, learning_rate, num_iterations, print_
     layers_dims = [X.shape[0], 20, 3, 1]
     
     # Initialize parameters dictionary with the he.
-    parameters = initialize_parameters_he(layers_dims)
+    if initialization == "zeros":
+        parameters = initialize_parameters_zeros(layers_dims)
+    elif initialization == "random":
+        parameters = initialize_parameters_random(layers_dims)
+    elif initialization == "he":
+        parameters = initialize_parameters_he(layers_dims)
 
     # Loop (gradient descent)
     for i in range(0, num_iterations):
