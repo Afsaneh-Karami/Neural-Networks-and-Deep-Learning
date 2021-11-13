@@ -10,11 +10,12 @@ In order to build some mini-batches from the training set (X, Y), shuffling and 
 * Momentum (GOTO Folder [Momentum link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Momentum))<br />
 Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence. Using momentum can reduce these oscillations. Momentum takes into account the past gradients to smooth out the steps of gradient descent.
 Implement the parameters update with momentum. The momentum update rule is, for  𝑙=1,...,𝐿 :<br />
-
 ![1](https://user-images.githubusercontent.com/78735911/141611199-0ebc7fda-70b6-41e8-ab9f-a56bb0f44f23.PNG)<br />
-
-
-where L is the number of layers,  𝛽  is the momentum and  𝛼  is the learning rate. All parameters should be stored in the parameters dictionary. So, you have to tune a momentum hyperparameter  𝛽  and a learning rate  𝛼.
+where: <br />
+L: is the number of layers<br />
+𝛽: is the momentum <br />
+𝛼: is the learning rate<br />
+All parameters should be stored in the parameters dictionary. So, you have to tune a momentum hyperparameter  𝛽  and a learning rate  𝛼.
 
 * Adam (GOTO Folder [Adam link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Adam))<br />
 Adam is one of the most effective optimization algorithms for training neural networks. It combines ideas from RMSProp (described in lecture) and Momentum.
@@ -24,13 +25,13 @@ It calculates an exponentially weighted average of the squares of the past gradi
 It updates parameters in a direction based on combining information from "1" and "2".
 The update rule is, for  𝑙=1,...,𝐿 :<br />
 ![2](https://user-images.githubusercontent.com/78735911/141611327-39338733-1510-438a-aac6-69e14083a41e.PNG) <br />
-where:<br />
-t: counts the number of steps taken of Adam<br />
-L: is the number of layers<br />
-𝛽1:  and  𝛽2  are hyperparameters that control the two exponentially weighted averages.<br />
-𝛼:  is the learning rate<br />
-𝜀: is a very small number to avoid dividing by zero<br />
-As usual, all parameters are stored in the parameters dictionary.<br />
+  where:<br />
+  t: counts the number of steps taken of Adam<br />
+  L: is the number of layers<br />
+  𝛽1:  and  𝛽2  are hyperparameters that control the two exponentially weighted averages.<br />
+  𝛼:  is the learning rate<br />
+  𝜀: is a very small number to avoid dividing by zero<br />
+  As usual, all parameters are stored in the parameters dictionary.<br />
 
 
 2. Dropout Regularization (GOTO Folder [Dropout Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/Dropout%20Regularization))<br /><br />
