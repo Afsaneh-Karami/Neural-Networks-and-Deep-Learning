@@ -1,6 +1,6 @@
 train_X, train_Y = load_dataset()
-parameters = model(train_X, train_Y, layers_dims, optimizer, learning_rate = 0.0007, mini_batch_size = 64, beta = 0.9, beta1 = 0.9, beta2 = 0.999,  epsilon = 1e-8, num_epochs = 5000, print_cost = True)
 layers_dims = [train_X.shape[0], 5, 2, 1]
+parameters = model(train_X, train_Y, layers_dims, optimizer, learning_rate = 0.0007, mini_batch_size = 64, beta = 0.9, beta1 = 0.9, beta2 = 0.999,  epsilon = 1e-8, num_epochs = 5000, print_cost = True)
 
 # Mini-Batch Gradient Descent
 parameters = model(train_X, train_Y, layers_dims, optimizer = "gd")
