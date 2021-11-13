@@ -1,5 +1,5 @@
-def update_parameters_with_adam(parameters, grads, v, s, t, learning_rate = 0.01,
-                                beta1 = 0.9, beta2 = 0.999,  epsilon = 1e-8):
+def update_parameters_with_adam(parameters, grads, v, s, t, learning_rate,
+                                beta1, beta2,  epsilon):
     """
     Update parameters using Adam
     
