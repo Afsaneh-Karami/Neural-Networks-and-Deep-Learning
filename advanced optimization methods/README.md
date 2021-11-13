@@ -2,7 +2,7 @@
 
 In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, adam and minibatches to speed up learning process, which can even get you to a better final value for the cost function. 
 * Minibatches Gradient Descent (GOTO Folder [Mini-batch link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Batch%20gradient%20descent%20and%20mini-batch%20gradient%20descent))<br />
-In order to build some mini-batches from the training set (X, Y), two following steps are needed.
+In order to build some mini-batches from the training set (X, Y), shuffling and partitioning are the two steps required to build mini-batches
 1. Shuffle: Create a shuffled version of the training set (X, Y) as shown below. Each column of X and Y represents a training example. Note that the random shuffling is done synchronously between X and Y. Such that after the shuffling the  𝑖𝑡ℎ  column of X is the example corresponding to the  𝑖𝑡ℎ  label in Y. The shuffling step ensures that examples will be split randomly into different mini-batches.
 <img width="685" alt="1" src="https://user-images.githubusercontent.com/78735911/141608780-94e92026-a0a2-4b52-96d1-68ad01caee42.png">
 2. Partition: Partition the shuffled (X, Y) into mini-batches of size mini_batch_size (here 64). Note that the number of training examples is not always divisible by mini_batch_size. The last mini batch might be smaller, but you don't need to worry about this. When the final mini-batch is smaller than the full mini_batch_size, it will look like this:
