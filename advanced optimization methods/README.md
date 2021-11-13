@@ -9,7 +9,7 @@ In order to build some mini-batches from the training set (X, Y), shuffling and 
 <img width="560" alt="2" src="https://user-images.githubusercontent.com/78735911/141608852-3fde3c73-b712-4823-86db-31cf1c9662d6.png"><br /><br />
 * Momentum
 Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence. Using momentum can reduce these oscillations. Momentum takes into account the past gradients to smooth out the steps of gradient descent.
-Implement the parameters update with momentum. The momentum update rule is, for  𝑙=1,...,𝐿 :
+Implement the parameters update with momentum. The momentum update rule is, for  𝑙=1,...,𝐿 :<br />
 ![1](https://user-images.githubusercontent.com/78735911/141610637-5f566c78-1a6d-4eaa-aea1-fc57c2608cd9.PNG)
 where L is the number of layers,  𝛽  is the momentum and  𝛼  is the learning rate. All parameters should be stored in the parameters dictionary. So, you have to tune a momentum hyperparameter  𝛽  and a learning rate  𝛼.
 
