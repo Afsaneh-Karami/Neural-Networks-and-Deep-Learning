@@ -1,5 +1,5 @@
-def model(X, Y, layers_dims, optimizer, learning_rate , mini_batch_size, beta ,
-          beta1, beta2,  epsilon, num_epochs, print_cost = True):
+def model(X, Y, layers_dims, optimizer, learning_rate , mini_batch_size, beta ,beta1, beta2,  epsilon, num_epochs, print_cost = True):
+          
     """
     3-layer neural network model which can be run in different optimizer modes.
     
