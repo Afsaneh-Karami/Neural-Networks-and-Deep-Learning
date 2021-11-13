@@ -1,0 +1,37 @@
+def forward_propagation(X, parameters):
+    """
+    Implements the forward propagation (and computes the loss) presented in Figure 2.
+    
+    Arguments:
+    X -- input dataset, of shape (input size, number of examples)
+    parameters -- python dictionary containing your parameters "W1", "b1", "W2", "b2", "W3", "b3":
+                    W1 -- weight matrix of shape ()
+                    b1 -- bias vector of shape ()
+                    W2 -- weight matrix of shape ()
+                    b2 -- bias vector of shape ()
+                    W3 -- weight matrix of shape ()
+                    b3 -- bias vector of shape ()
+    
+    Returns:
+    loss -- the loss function (vanilla logistic loss)
+    """
+    
+    # retrieve parameters
+    W1 = parameters["W1"]
+    b1 = parameters["b1"]
+    W2 = parameters["W2"]
+    b2 = parameters["b2"]
+    W3 = parameters["W3"]
+    b3 = parameters["b3"]
+    
+    # LINEAR -> RELU -> LINEAR -> RELU -> LINEAR -> SIGMOID
+    z1 = np.dot(W1, X) + b1
+    a1 = relu(z1)
+    z2 = np.dot(W2, a1) + b2
+    a2 = relu(z2)
+    z3 = np.dot(W3, a2) + b3
+    a3 = sigmoid(z3)
+    
+    cache = (z1, a1, W1, b1, z2, a2, W2, b2, z3, a3, W3, b3)
+    
+    return a3, cache
