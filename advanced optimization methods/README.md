@@ -53,7 +53,9 @@ The update rule is, for  𝑙=1,...,𝐿 :<br />
   𝛼:  is the learning rate<br />
   𝜀: is a very small number to avoid dividing by zero<br />
   As usual, all parameters are stored in the parameters dictionary.<br /><br />
-
+5. Using Predict fuction to estimate the results (GOTO [Predict link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Predict))<br />
+  * predictions = predict(train_X, train_Y, parameters)
+6. Plot decision boundary for each optimizer algorithm. 
 
 
    
