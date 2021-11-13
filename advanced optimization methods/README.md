@@ -16,7 +16,7 @@ Implement the parameters update with momentum. The momentum update rule is, for 
 
 where L is the number of layers,  𝛽  is the momentum and  𝛼  is the learning rate. All parameters should be stored in the parameters dictionary. So, you have to tune a momentum hyperparameter  𝛽  and a learning rate  𝛼.
 
-* Adam <br />
+* Adam (GOTO Folder [Adam link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Adam))<br />
 Adam is one of the most effective optimization algorithms for training neural networks. It combines ideas from RMSProp (described in lecture) and Momentum.
 How does Adam work?
 It calculates an exponentially weighted average of past gradients, and stores it in variables  𝑣  (before bias correction) and  𝑣𝑐𝑜𝑟𝑟𝑒𝑐𝑡𝑒𝑑  (with bias correction).
@@ -26,11 +26,11 @@ The update rule is, for  𝑙=1,...,𝐿 :<br />
 ![2](https://user-images.githubusercontent.com/78735911/141611327-39338733-1510-438a-aac6-69e14083a41e.PNG) <br />
 <br />
 where:<br />
-t counts the number of steps taken of Adam<br />
-L is the number of layers<br />
-𝛽1  and  𝛽2  are hyperparameters that control the two exponentially weighted averages.<br />
-𝛼  is the learning rate<br />
-𝜀  is a very small number to avoid dividing by zero<br />
+t: counts the number of steps taken of Adam<br />
+L: is the number of layers<br />
+𝛽1:  and  𝛽2  are hyperparameters that control the two exponentially weighted averages.<br />
+𝛼:  is the learning rate<br />
+𝜀: is a very small number to avoid dividing by zero<br />
 As usual, all parameters are stored in the parameters dictionary.<br />
 
 
