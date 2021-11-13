@@ -1,6 +1,6 @@
 ## Applying optimization methods such as Gradient Descent, Momentum, RMSProp, Adam and Minibatches to speed up learning process<br />
 
-In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, adam and minibatches to speed up learning process and perhaps even get you to a better final value for the cost function. In order to avoid overfitting, I applied two regularization method to overcome mentioned problem including:
+In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, adam and minibatches to speed up learning process, which can even get you to a better final value for the cost function. In order to avoid overfitting, I applied two regularization method to overcome mentioned problem including:
  1. L2 regularization (GOTO Folder [L2 Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/L2%20Regularization))<br />
 2. Dropout Regularization (GOTO Folder [Dropout Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/Dropout%20Regularization))<br /><br />
 ![Capture](https://user-images.githubusercontent.com/78735911/137906920-87d2585c-ca4a-47bf-91e4-2f8c7832d352.JPG) <br />
