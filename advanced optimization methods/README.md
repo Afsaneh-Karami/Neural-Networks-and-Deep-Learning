@@ -24,7 +24,6 @@ It calculates an exponentially weighted average of the squares of the past gradi
 It updates parameters in a direction based on combining information from "1" and "2".
 The update rule is, for  𝑙=1,...,𝐿 :<br />
 ![2](https://user-images.githubusercontent.com/78735911/141611327-39338733-1510-438a-aac6-69e14083a41e.PNG) <br />
-<br />
 where:<br />
 t: counts the number of steps taken of Adam<br />
 L: is the number of layers<br />
