@@ -6,10 +6,11 @@ In order to build some mini-batches from the training set (X, Y), shuffling and 
 1. Shuffle: Create a shuffled version of the training set (X, Y) as shown below. Each column of X and Y represents a training example. Note that the random shuffling is done synchronously between X and Y. Such that after the shuffling the  𝑖𝑡ℎ  column of X is the example corresponding to the  𝑖𝑡ℎ  label in Y. The shuffling step ensures that examples will be split randomly into different mini-batches.
 <img width="685" alt="1" src="https://user-images.githubusercontent.com/78735911/141608780-94e92026-a0a2-4b52-96d1-68ad01caee42.png">
 2. Partition: Partition the shuffled (X, Y) into mini-batches of size mini_batch_size (here 64). Note that the number of training examples is not always divisible by mini_batch_size. The last mini batch might be smaller, but you don't need to worry about this. When the final mini-batch is smaller than the full mini_batch_size, it will look like this:
-<img width="560" alt="2" src="https://user-images.githubusercontent.com/78735911/141608852-3fde3c73-b712-4823-86db-31cf1c9662d6.png">
+<img width="560" alt="2" src="https://user-images.githubusercontent.com/78735911/141608852-3fde3c73-b712-4823-86db-31cf1c9662d6.png"><br /><br />
+* Momentum
+Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence. Using momentum can reduce these oscillations. Momentum takes into account the past gradients to smooth out the update. 
 
 
- 1. L2 regularization (GOTO Folder [L2 Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/L2%20Regularization))<br />
 2. Dropout Regularization (GOTO Folder [Dropout Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/Dropout%20Regularization))<br /><br />
 ![Capture](https://user-images.githubusercontent.com/78735911/137906920-87d2585c-ca4a-47bf-91e4-2f8c7832d352.JPG) <br />
 
