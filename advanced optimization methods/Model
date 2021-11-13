@@ -40,8 +40,8 @@ def model(X, Y, layers_dims, optimizer, learning_rate = 0.0007, mini_batch_size 
     for i in range(num_epochs):
         
         # Define the random minibatches. We increment the seed to reshuffle differently the dataset after each epoch
-        seed = seed + 1
-        minibatches = random_mini_batches(X, Y, mini_batch_size, seed)
+        
+        minibatches = random_mini_batches(X, Y, mini_batch_size)
         cost_total = 0
         
         for minibatch in minibatches:
