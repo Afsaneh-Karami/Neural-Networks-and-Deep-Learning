@@ -10,7 +10,10 @@ In order to build some mini-batches from the training set (X, Y), shuffling and 
 * Momentum
 Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence. Using momentum can reduce these oscillations. Momentum takes into account the past gradients to smooth out the steps of gradient descent.
 Implement the parameters update with momentum. The momentum update rule is, for  𝑙=1,...,𝐿 :<br />
-![1](https://user-images.githubusercontent.com/78735911/141611162-e593a667-8a1f-4238-881e-68cd719bb803.PNG)<br />
+
+![1](https://user-images.githubusercontent.com/78735911/141611199-0ebc7fda-70b6-41e8-ab9f-a56bb0f44f23.PNG)
+
+
 where L is the number of layers,  𝛽  is the momentum and  𝛼  is the learning rate. All parameters should be stored in the parameters dictionary. So, you have to tune a momentum hyperparameter  𝛽  and a learning rate  𝛼.
 
 2. Dropout Regularization (GOTO Folder [Dropout Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Regularization/Dropout%20Regularization))<br /><br />
