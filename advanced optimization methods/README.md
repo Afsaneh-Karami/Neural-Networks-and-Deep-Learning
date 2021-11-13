@@ -1,12 +1,33 @@
-## Applying optimization methods such as Gradient Descent, Momentum, RMSProp, Adam and Minibatches to speed up learning process<br />
+## Applying optimization methods such as Gradient Descent, Momentum, RMSProp, and Adam with Minibatches to speed up learning process<br />
 
-In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, adam and minibatches to speed up learning process, which can even get you to a better final value for the cost function. 
-* Minibatches Gradient Descent (GOTO Folder [Mini-batch link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Batch%20gradient%20descent%20and%20mini-batch%20gradient%20descent))<br />
-In order to build some mini-batches from the training set (X, Y), shuffling and partitioning are the two steps required to build mini-batches
-1. Shuffle: Create a shuffled version of the training set (X, Y) as shown below. Each column of X and Y represents a training example. Note that the random shuffling is done synchronously between X and Y. Such that after the shuffling the  𝑖𝑡ℎ  column of X is the example corresponding to the  𝑖𝑡ℎ  label in Y. The shuffling step ensures that examples will be split randomly into different mini-batches.<br />
+In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, and adam to speed up learning process, which can even get you to a better final value for the cost function.I wrote my code in Jupyter notebook.
+The order of functions to apply different optimizer and compare them is according to the following steps: 
+1. Begin by importing required packages(GOTO Folder [Import packages link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Import%20packages))<br />
+2. Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Load%20dataset)) <br />
+   * train_x, train_y= load_dataset()<br />
+3. Define the size of input, hidden, and output layers:<br />
+   * layers_dims = [train_X.shape[0], 5, 2, 1]<br />
+4. Running the Model fuction which does all forward and backward propagation and gives parameters and costs fuction based on the optimization algorithm. (GOTO [Model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Model) )<br />
+  4.1. Initialize the parameters w and b for all layers (GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/initialize_parameters)):<br />
+  4.2. Initialize the optimizer (GOTO [Model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Model) ) (lines: 31-37), which initialize the parameters related o the optimizer algorithm such as Vdw, Vdb, Sdw, and Sdb for Adam.<br />
+  4.3. Running random_mini_batches function to creat mini-batches from datasets (GOTO [Mini-Batch Gradient Descent link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Mini-Batch%20Gradient%20Descent)):<br />
+ * minibatches = random_mini_batches(X, Y, mini_batch_size)<br />
+ * In order to build some mini-batches from the training set (X, Y), shuffling and partitioning are the two steps required to build mini-batches: <br />
+4.3.1 Shuffle: Create a shuffled version of the training set (X, Y) as shown below. Each column of X and Y represents a training example. Note that the random shuffling is done synchronously between X and Y. Such that after the shuffling the  𝑖𝑡ℎ  column of X is the example corresponding to the  𝑖𝑡ℎ  label in Y. The shuffling step ensures that examples will be split randomly into different mini-batches.<br />
 <img width="685" alt="1" src="https://user-images.githubusercontent.com/78735911/141608780-94e92026-a0a2-4b52-96d1-68ad01caee42.png"><br />
-2. Partition: Partition the shuffled (X, Y) into mini-batches of size mini_batch_size (here 64). Note that the number of training examples is not always divisible by mini_batch_size. The last mini batch might be smaller, but you don't need to worry about this. When the final mini-batch is smaller than the full mini_batch_size, it will look like this:
+4.3.2. Partition: Partition the shuffled (X, Y) into mini-batches of size mini_batch_size (here 64). Note that the number of training examples is not always divisible by mini_batch_size. The last mini batch might be smaller, but you don't need to worry about this. When the final mini-batch is smaller than the full mini_batch_size, it will look like this:
 <img width="560" alt="2" src="https://user-images.githubusercontent.com/78735911/141608852-3fde3c73-b712-4823-86db-31cf1c9662d6.png"><br /><br />
+
+  4.4. Using forward propagation to calculate Z and A for each mini-batches (GOTO [forward propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/forward%20propagation))<br />
+  * a3, caches = forward_propagation(minibatch_X, parameters)
+  4.5.  Using compute_cost fuction for each mini-batches (GOTO [compute_cost link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/compute_cost ))<br />
+  * cost_total += compute_cost(a3, minibatch_Y)
+
+
+
+
+
+
 * Momentum (GOTO Folder [Momentum link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Momentum))<br />
 Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence. Using momentum can reduce these oscillations. Momentum takes into account the past gradients to smooth out the steps of gradient descent.
 Implement the parameters update with momentum. The momentum update rule is, for  𝑙=1,...,𝐿 :<br />
