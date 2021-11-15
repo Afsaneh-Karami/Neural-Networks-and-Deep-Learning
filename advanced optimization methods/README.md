@@ -1,16 +1,16 @@
 ## Applying optimization methods such as Gradient Descent, Momentum, RMSProp, and Adam with Minibatches to speed up learning process<br />
 
-In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, and adam to speed up learning process, which can even get you to a better final value for the cost function.I wrote my code in Jupyter notebook.
-The order of functions to apply different optimizer and compare them is according to the following steps: 
+In this file, I used some optimization methods such as gradient descent, momentum, RMSprop, and adam to speed up the learning process, which can even get a better final value for the cost function. I wrote my code in Jupyter notebook.
+The order of functions to apply different optimizers and compare them is according to the following steps: 
 1. Begin by importing required packages(GOTO Folder [Import packages link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Import%20packages))<br /><br />
-2. Load the trainig dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Load%20dataset)) <br />
+2. Load the training dataset (GOTO [load_dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Load%20dataset)) <br />
    * train_x, train_y= load_dataset()<br /><br />
 3. Define the size of input, hidden, and output layers:<br />
    * layers_dims = [train_X.shape[0], 5, 2, 1]<br /><br />
-4. Running the Model fuction which does all forward and backward propagation and gives parameters and costs fuction based on the optimization algorithm. (GOTO [Model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Model) )<br />
+4. Running the Model function which does all forward and backward propagation and gives parameters and costs function based on the optimization algorithm. (GOTO [Model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Model) )<br />
   4.1. Initialize the parameters w and b for all layers (GOTO [initialize_parameters link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/initialize_parameters)):<br />
   4.2. Initialize the optimizer (GOTO [Model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Model) ) (lines: 31-37), which initialize the parameters related o the optimizer algorithm such as Vdw, Vdb, Sdw, and Sdb for Adam.<br /><br />
-  4.3. Running random_mini_batches function to creat mini-batches from datasets (GOTO [Mini-Batch Gradient Descent link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Mini-Batch%20Gradient%20Descent)):<br />
+  4.3. Running random_mini_batches function to create mini-batches from datasets (GOTO [Mini-Batch Gradient Descent link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Mini-Batch%20Gradient%20Descent)):<br />
    * minibatches = random_mini_batches(X, Y, mini_batch_size)<br />
    * In order to build some mini-batches from the training set (X, Y), shuffling and partitioning are the two steps required to build mini-batches: <br />
 4.3.1 Shuffle: Create a shuffled version of the training set (X, Y) as shown below. Each column of X and Y represents a training example. Note that the random shuffling is done synchronously between X and Y. Such that after the shuffling the  𝑖𝑡ℎ  column of X is the example corresponding to the  𝑖𝑡ℎ  label in Y. The shuffling step ensures that examples will be split randomly into different mini-batches.<br />
@@ -24,7 +24,7 @@ The order of functions to apply different optimizer and compare them is accordin
         * cost_total += compute_cost(a3, minibatch_Y)<br /><br />
   4.6. Using backward propagation to calculate dA, dW, and db for each mini-batches (GOTO [backward_propagation link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/backward_propagation))<br /> 
        * grads = backward_propagation(minibatch_X, minibatch_Y, caches)<br /><br />
-  4.7. Using update_parameters fuction to update parameters based on the optimizer algorithm <br /><br />
+  4.7. Using update_parameters function to update parameters based on the optimizer algorithm <br /><br />
      4.7.1. For updating by gradient descent(GOTO [Gradient descent link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Gradient%20descent))<br />
         * parameters = update_parameters_with_gd(parameters, grads, learning_rate)<br /><br />
      4.7.2. For updating by Gradient Descent with Momentum(GOTO [Momentum link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/advanced%20optimization%20methods/Momentum))<br />
@@ -53,7 +53,7 @@ The update rule is, for  𝑙=1,...,𝐿 :<br />
   𝛼:  is the learning rate<br />
   𝜀: is a very small number to avoid dividing by zero<br />
   As usual, all parameters are stored in the parameters dictionary.<br /><br />
-5. Using Predict fuction to estimate the results (GOTO [Predict link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Predict))<br />
+5. Using Predict function to estimate the results (GOTO [Predict link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/advanced%20optimization%20methods/Predict))<br />
   * predictions = predict(train_X, train_Y, parameters)<br />
 
 6. Plot decision boundary for each optimizer algorithm. 
