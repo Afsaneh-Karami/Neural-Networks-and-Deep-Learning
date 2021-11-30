@@ -8,3 +8,7 @@ The main benefits of padding are:
  * Apply one filter defined by parameters W on a single slice (a_slice_prev) of the output activation 
  of the previous layer.   
 ![Convolution_schematic](https://user-images.githubusercontent.com/78735911/144041948-845be123-cbf2-46cd-ae65-cc1a4c3654a4.gif)
+
+3.3 - Convolutional Neural Networks - Forward Pass
+In the forward pass, you will take many filters and convolve them on the input. Each 'convolution' gives you a 2D matrix output. You will then stack these outputs to get a 3D volume:
+
