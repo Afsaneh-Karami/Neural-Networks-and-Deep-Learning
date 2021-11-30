@@ -10,5 +10,13 @@ The main benefits of padding are:
 ![Convolution_schematic](https://user-images.githubusercontent.com/78735911/144041948-845be123-cbf2-46cd-ae65-cc1a4c3654a4.gif)
 
 3.3 - Convolutional Neural Networks - Forward Pass
-In the forward pass, you will take many filters and convolve them on the input. Each 'convolution' gives you a 2D matrix output. You will then stack these outputs to get a 3D volume:
+In the forward pass, you will take many filters and convolve them on the input. Each 'convolution' gives you a 2D matrix output. You will then stack these outputs to get a 3D volume.
+The formulas relating the output shape of the convolution to the input shape are:
+![Capture](https://user-images.githubusercontent.com/78735911/144050854-c79b2fc0-f16c-4802-a8a5-de9b86e9a9be.PNG)
+
+4 - Pooling Layer
+The pooling (POOL) layer reduces the height and width of the input. It helps reduce computation, as well as helps make feature detectors more invariant to its position in the input. The two types of pooling layers are:
+* Max-pooling layer: slides an (f, ff,f) window over the input and stores the max value of the window in the output.
+* Average-pooling layer: slides an (f, ff,f) window over the input and stores the average value of the window in the output.
+they have hyperparameters such as the window size f
 
