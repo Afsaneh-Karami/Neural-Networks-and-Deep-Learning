@@ -33,3 +33,5 @@ Arguments:
                     biases =b[:,:,:,c]
                     Z[i, h, w, c] =conv_single_step(a_slice_prev, weights, biases)
     cache = (A_prev, W, b, hparameters)
+    
+    return Z, cache
