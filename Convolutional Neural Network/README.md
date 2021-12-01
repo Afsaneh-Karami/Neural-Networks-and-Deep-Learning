@@ -30,8 +30,10 @@ horiz_end =horiz_start+f <br />
 <img width="508" alt="vert_horiz_kiank" src="https://user-images.githubusercontent.com/78735911/144199090-c601b9e3-c2ef-47be-a6ee-6caa3d19477c.png">
 
 4. Pooling Layer (GOTO [Forward Pooling link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/Forward%20Pooling)) <br />
-The pooling (POOL) layer reduces the height and width of the input. It helps reduce computation, as well as helps make feature detectors more invariant to its position in the input. The two types of pooling layers are:
-* Max-pooling layer: slides an (f, ff,f) window over the input and stores the max value of the window in the output.
-* Average-pooling layer: slides an (f, ff,f) window over the input and stores the average value of the window in the output.
-they have hyperparameters such as the window size f
+The pooling (POOL) layer reduces the height and width of the input. It helps reduce computation, as well as helps make feature detectors more invariant to its position in the input. The two types of pooling layers are: <br />
+* Max-pooling layer: slides an (f,f) window over the input and stores the max value of the window in the output. <br />
+* A[i, h, w, c] =np.max(a_prev_slice)
+* Average-pooling layer: slides an (f,f) window over the input and stores the average value of the window in the output. <br />
+* A[i, h, w, c] =np.mean(a_prev_slice)
+They have hyperparameters such as the window size f. <br />
 
