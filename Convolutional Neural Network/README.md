@@ -1,15 +1,15 @@
 ## Applying convolutional and pooling layer to neural network<br />
 
-In this file, I implemented convolutional (CONV) and pooling (POOL) layers in numpy, including both forward propagation and backward propagation. File "test_signs.h5" and "train_signs.h5" were used as datasets. I wrote my code in Jupyter notebook.<br />
+In this file, I implemented convolutional (CONV) and pooling (POOL) layers in NumPy, including both forward propagation and backward propagation. File "test_signs.h5" and "train_signs.h5" were used as datasets. I wrote my code in Jupyter notebook.<br />
 The order of functions to make CONV and POOL filters:<br />
-1. A convolution layer transforms an input volume into an output volume of different size. <br />
-1.1 Zero-padding adds zeros around the border of an image. The padding is applied to the height and width of an image, as illustrated in below.(GOTO [zero_pad link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/zero_pad)) 
+1. A convolution layer transforms an input volume into an output volume of different sizes.<br />
+1.1 zero-padding adds zeros around the border of an image. The padding is applied to the height and width of an image, as illustrated below. (GOTO [zero_pad link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/zero_pad)) 
 <img width="574" alt="PAD" src="https://user-images.githubusercontent.com/78735911/144033668-5a135959-337a-4edd-b3cf-6f0d7e25e299.png">
  The main benefits of padding are: <br />
-a. It allows you to use a CONV layer without necessarily shrinking the height and width of the volumes. This is important for building deeper networks, since otherwise the 
+a. It allows you to use a CONV layer without necessarily shrinking the height and width of the volumes. This is important for building deeper networks since otherwise the 
   height/width would shrink as you go to deeper layers.<br />   
 b. It helps us keep more of the information at the border of an image. Without padding, very few values at the next layer would be affected by pixels at the edges of an image.<br /> 
- X is a python numpy array of shape (m, n_H, n_W, n_C) so padding should influence n_H and n_W:<br />  
+ X is a python NumPy array of shapes (m, n_H, n_W, n_C) so padding should influence n_H and n_W:<br />  
  X_pad =np.pad(X,((0,0),( pad,pad),( pad, pad),(0,0)),mode='constant', constant_values = (0,0))<br />
 2. Single Step of Convolution <br />
  Apply one filter defined by parameters W on a single slice (a_slice_prev) of the output activation 
@@ -30,7 +30,7 @@ horiz_end =horiz_start+f <br />
 <img width="508" alt="vert_horiz_kiank" src="https://user-images.githubusercontent.com/78735911/144199090-c601b9e3-c2ef-47be-a6ee-6caa3d19477c.png">
 
 4. Pooling Layer (GOTO [Forward Pooling link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/Forward%20Pooling)) <br />
-The pooling (POOL) layer reduces the height and width of the input. It helps reduce computation, as well as helps make feature detectors more invariant to its position in the input. The two types of pooling layers are: <br />
+The pooling (POOL) layer reduces the height and width of the input. It helps reduce computation, as well as helps make feature detectors more invariant to their position in the input. The two types of pooling layers are: <br />
 * Max-pooling layer: slides an (f,f) window over the input and stores the max value of the window in the output. <br />
 * A[i, h, w, c] =np.max(a_prev_slice)
 * Average-pooling layer: slides an (f,f) window over the input and stores the average value of the window in the output. <br />
