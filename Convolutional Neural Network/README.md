@@ -1,3 +1,8 @@
+## Applying convolutional and pooling layer to neural network<br />
+
+In this file, I used Neural Network (NN) with three hidden layers to classify cat images. File train_catvnoncat.h5 was used as training datasets to choose the parameters W and b of the NN model. The model was applied to train and test datasets to classify images as cat or non-cat, and to estimate the accuracy of the model. File train_catvnoncat.h5 and test_catvnoncat.h5 are in Datasets folder. I wrote my code in Jupyter notebook.<br />
+The order of functions to make an L-Layer NN model for classification :
+you will implement convolutional (CONV) and pooling (POOL) layers in numpy, including both forward propagation and backward propagation.
 * Pad with zeros all images of the dataset X. The padding is applied to the height and width of an image, 
 as illustrated in below.
 <img width="574" alt="PAD" src="https://user-images.githubusercontent.com/78735911/144033668-5a135959-337a-4edd-b3cf-6f0d7e25e299.png">
