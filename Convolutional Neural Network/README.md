@@ -37,20 +37,21 @@ The pooling (POOL) layer reduces the height and width of the input. It helps red
 A[i, h, w, c] =np.mean(a_prev_slice)<br />
 They have hyperparameters such as the window size f. <br />
 5. Backpropagation in Convolutional Neural Networks (GOTO [conv_backward link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/conv_backward)) <br />
+Implement the conv_backward function below. You should sum over all the training examples, filters, heights, and widths. You should then compute the derivatives using formulas 1, 2 and 3 above.
 5.1 Computing dA:<br />
 This is the formula for computing  dA  with respect to the cost for a certain filter  Wc  and a given training example:<br />
 ![1](https://user-images.githubusercontent.com/78735911/154953443-c1965763-07e2-4151-9230-f1a4920ee1de.PNG) <br />
-Where  Wc  is a filter and  dZhw  is a scalar corresponding to the gradient of the cost with respect to the output of the conv layer Z at the hth row and wth column (corresponding to the dot product taken at the ith stride left and jth stride down). Note that at each time, you multiply the the same filter  Wc  by a different dZ when updating dA. We do so mainly because when computing the forward propagation, each filter is dotted and summed by a different a_slice. Therefore when computing the backprop for dA, you are just adding the gradients of all the a_slices. In code, inside the appropriate for-loops, this formula translates into:
-* da_prev_pad[vert_start:vert_end, horiz_start:horiz_end, :] += W[:,:,:,c] * dZ[i, h, w, c] <br />
+Where  Wc  is a filter and  dZhw  is a scalar corresponding to the gradient of the cost with respect to the output of the conv layer Z at the hth row and wth column (corresponding to the dot product taken at the ith stride left and jth stride down). Note that at each time, you multiply the the same filter  Wc  by a different dZ when updating dA. We do so mainly because when computing the forward propagation, each filter is dotted and summed by a different a_slice. Therefore when computing the backprop for dA, you are just adding the gradients of all the a_slices. In code, inside the appropriate for-loops, this formula translates into:<br />
+da_prev_pad[vert_start:vert_end, horiz_start:horiz_end, :] += W[:,:,:,c] * dZ[i, h, w, c] <br /><br />
 5.2 Computing dW:<br />
 This is is the formula for computing  dWc  ( dWc  is the derivative of one filter) with respect to the loss:<br />
 ![22](https://user-images.githubusercontent.com/78735911/154954538-8520a638-4d52-438e-a05c-d1ca7cb0b8f9.PNG)<br />
 Where  aslice  corresponds to the slice which was used to generate the activation  Zij . Hence, this ends up giving us the gradient for  W  with respect to that slice. Since it is the same  W , we will just add up all such gradients to get dW .In code, inside the appropriate for-loops, this formula translates into:<br />
-* dW[:,:,:,c] \mathrel{+}= a_slice * dZ[i, h, w, c] <br />
+dW[:,:,:,c] += a_slice * dZ[i, h, w, c] <br /><br />
 5.3 Computing db:<br />
 This is the formula for computing  db  with respect to the cost for a certain filter  Wc:<br />
-![3](https://user-images.githubusercontent.com/78735911/154954834-733f9d1d-c66d-4b30-8ac2-17e630563c35.PNG)![Uploading 3.PNG…]<br />
+![3](https://user-images.githubusercontent.com/78735911/154954834-733f9d1d-c66d-4b30-8ac2-17e630563c35.PNG)<br />
 As you have previously seen in basic neural networks, db is computed by summing  dZ . In this case, you are just summing over all the gradients of the conv output (Z) with respect to the cost. In code, inside the appropriate for-loops, this formula translates into:<br />
-* db[:,:,:,c] += dZ[i, h, w, c]
+db[:,:,:,c] += dZ[i, h, w, c]
 
 
