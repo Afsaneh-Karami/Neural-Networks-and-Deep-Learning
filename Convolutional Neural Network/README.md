@@ -34,6 +34,6 @@ The pooling (POOL) layer reduces the height and width of the input. It helps red
 * Max-pooling layer: slides an (f,f) window over the input and stores the max value of the window in the output. <br />
 * A[i, h, w, c] =np.max(a_prev_slice)
 * Average-pooling layer: slides an (f,f) window over the input and stores the average value of the window in the output. <br />
-* A[i, h, w, c] =np.mean(a_prev_slice)
+* A[i, h, w, c] =np.mean(a_prev_slice)<br />
 They have hyperparameters such as the window size f. <br />
 
