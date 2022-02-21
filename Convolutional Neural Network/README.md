@@ -37,7 +37,7 @@ The pooling (POOL) layer reduces the height and width of the input. It helps red
 A[i, h, w, c] =np.mean(a_prev_slice)<br />
 They have hyperparameters such as the window size f. <br />
 5. Backpropagation in Convolutional Neural Networks (GOTO [conv_backward link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/conv_backward)) <br />
-Implement the conv_backward function below. You should sum over all the training examples, filters, heights, and widths. You should then compute the derivatives using formulas 1, 2 and 3 above.
+Implement the conv_backward function, You should compute the derivatives dA, dW,and db.Then sum over all the training examples, filters, heights, and widths. <br />
 5.1 Computing dA:<br />
 This is the formula for computing  dA  with respect to the cost for a certain filter  Wc  and a given training example:<br />
 ![1](https://user-images.githubusercontent.com/78735911/154953443-c1965763-07e2-4151-9230-f1a4920ee1de.PNG) <br />
