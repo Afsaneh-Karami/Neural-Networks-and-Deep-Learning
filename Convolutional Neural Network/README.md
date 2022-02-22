@@ -53,11 +53,16 @@ This is the formula for computing  db  with respect to the cost for a certain fi
 ![3](https://user-images.githubusercontent.com/78735911/154954834-733f9d1d-c66d-4b30-8ac2-17e630563c35.PNG)<br />
 As you have previously seen in basic neural networks, db is computed by summing  dZ . In this case, you are just summing over all the gradients of the conv output (Z) with respect to the cost. In code, inside the appropriate for-loops, this formula translates into:<br />
 db[:,:,:,c] += dZ[i, h, w, c] <br /><br />
-6.Backward propagation on a pooling layer(GOTO [pool_backward link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/pool_backward))<br />
+6. Backward propagation on a pooling layer(GOTO [pool_backward link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/pool_backward))<br />
 Even though a pooling layer has no parameters for backprop to update, you still need to backpropagate the gradient through the pooling layer in order to compute gradients for layers that came before the pooling layer.<br />
-Implement the pool_backward function in both modes ("max" and "average"). You will once again use 4 for-loops (iterating over training examples, height, width, and channels). You should use an if/elif statement to see if the mode is equal to 'max' or 'average'. If it is equal to 'average' you should use the distribute_value() function you implemented above to create a matrix of the same shape as a_slice. Otherwise, the mode is equal to 'max', and you will create a mask with create_mask_from_window() and multiply it by the corresponding value of dA.<br />
+Implement the pool_backward function in both modes ("max" and "average"). You will once again use 4 for-loops (iterating over training examples, height, width, and channels). You should use an if/elif statement to see if the mode is equal to 'max' or 'average'. If it is equal to 'average' you should use the distribute_value() function  to create a matrix of the same shape as a_slice by a mutiplier. Otherwise, the mode is equal to 'max', and you will create a mask with create_mask_from_window() and multiply it by the corresponding value of dA.<br />
 6.1 mask for Max pooling (GOTO [create_mask_from_window link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/create_mask_from_window))<br />
 creating a function that creates a "mask" matrix which keeps track of where the maximum of the matrix is. True (1) indicates the position of the maximum in X, the other entries are False (0). <br />
+mask =(x==np.max(x)) <br />
+6.2 distribute fuction for average pooling (GOTO [distribute_value link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/distribute_value))<br />
+In max pooling, for each input window, all the "influence" on the output came from a single input value--the max. In average pooling, every element of the input window has equal influence on the output. So to implement backprop, you will now implement a helper function that reflects this. This implies that each position in the  𝑑𝑍  matrix contributes equally to output because in the forward pass, we took an average.<br />
+
+
 
 
 
