@@ -60,7 +60,7 @@ Implement the pool_backward function in both modes ("max" and "average"). You wi
 creating a function that creates a "mask" matrix which keeps track of where the maximum of the matrix is. True (1) indicates the position of the maximum in X, the other entries are False (0). <br />
 mask =(x==np.max(x)) <br />
 6.2 distribute fuction for average pooling (GOTO [distribute_value link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/distribute_value))<br />
-In max pooling, for each input window, all the "influence" on the output came from a single input value--the max. In average pooling, every element of the input window has equal influence on the output. So to implement backprop, you will now implement a helper function that reflects this. This implies that each position in the  𝑑𝑍  matrix contributes equally to output because in the forward pass, we took an average.<br />
+In max pooling, for each input window, all the "influence" on the output came from a single input value the max. In average pooling, every element of the input window has equal influence on the output. So to implement backprop, you will now implement a helper function that reflects this. This implies that each position in the  𝑑𝑍  matrix contributes equally to output because in the forward pass, we took an average.<br />
 
 
 
