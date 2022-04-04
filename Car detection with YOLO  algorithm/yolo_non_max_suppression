@@ -1,0 +1,7 @@
+def yolo_non_max_suppression(scores, boxes, classes, max_boxes = 10, iou_threshold = 0.5):
+   max_boxes_tensor = tf.Variable(max_boxes, dtype='int32')
+   nms_indices = tf.image.non_max_suppression(boxes,scores,max_boxes,iou_threshold)
+   scores = tf.gather(scores,nms_indices)
+   boxes = tf.gather(boxes,nms_indices)
+   classes = tf.gather(classes,nms_indices)
+   return scores, boxes, classes
