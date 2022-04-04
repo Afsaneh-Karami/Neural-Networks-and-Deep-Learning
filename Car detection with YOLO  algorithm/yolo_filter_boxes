@@ -1,0 +1,11 @@
+def yolo_filter_boxes(boxes, box_confidence, box_class_probs, threshold = .6):
+   box_scores = box_confidence*box_class_probs
+   box_classes = tf.math.argmax(box_scores,axis=-1)
+   box_class_scores = tf.math.reduce_max(box_scores,axis=-1)
+   filtering_mask = (box_class_scores>=threshold)
+   scores = tf.boolean_mask(box_class_scores,filtering_mask)
+   boxes = tf.boolean_mask(boxes,filtering_mask)
+   classes = tf.boolean_mask(box_classes,filtering_mask)
+   return scores, boxes, classes
+
+   
