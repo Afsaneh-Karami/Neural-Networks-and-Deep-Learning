@@ -37,7 +37,7 @@ The class score is  𝑠𝑐𝑜𝑟𝑒𝑐,𝑖=𝑝𝑐×𝑐𝑖 : the proba
 * scores = tf.boolean_mask(box_class_scores,filtering_mask)<br />
 * boxes = tf.boolean_mask(boxes,filtering_mask)<br />
 * classes = tf.boolean_mask(box_classes,filtering_mask)<br />
- ## Second filter:Non-max Suppression
+ ## Second filter:Non-max Suppression (GOTO [yolo_non_max_suppression]())<br /> 
  Even after filtering by thresholding over the class scores, you still end up with a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS).<br />
 Non-max suppression uses the very important function called "Intersection over Union", or IoU.<br />
 <img width="667" alt="iou" src="https://user-images.githubusercontent.com/78735911/161514832-92a5344d-83d7-42f8-8e3a-fec71e34bab6.png"><br />
@@ -63,8 +63,9 @@ If two boxes have no intersection then the height and width become negative so t
 This will remove all boxes that have a large overlap with the selected boxes. Only the "best" boxes remain.<br />
 Tensorflow used build-in function non_max_suppression to calculate all the above mentioned stages itself. This function get the list of indices corresponding to boxes that keep.<br />
 * tf.image.non_max_suppression(boxes,scores,max_output_size,iou_threshold=0.5, name=None)
-Gahther function show the indices of refrence matrix 
+Gahther function show the value of the indices in refrence matrix: 
 * keras.gather( reference,indices)
+
  
   
 
