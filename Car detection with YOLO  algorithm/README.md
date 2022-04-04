@@ -15,20 +15,29 @@ The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19,
 Since you're using 5 anchor boxes, each of the 19 x19 cells thus encodes information about 5 boxes. Anchor boxes are defined only by their width and height.
 For simplicity, you'll flatten the last two dimensions of the shape (19, 19, 5, 85) encoding, so the output of the Deep CNN is (19, 19, 425).<br />
 <img width="791" alt="flatten" src="https://user-images.githubusercontent.com/78735911/161508295-7041650c-f266-4e0c-adf9-1ad3578fb98a.png"><br /><br />
- # First filter: Filtering with a threshold on class scores (GOTO [yolo_filter_boxes](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Car%20detection%20with%20YOLO%20%20algorithm/Datasets))<br /> 
+
+ # First filter: Filtering with a threshold on class scores (GOTO [yolo_filter_boxes](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_filter_boxes))<br /> 
 * Class score 
 Now, for each box (of each cell) you'll compute the following element-wise product and extract a probability that the box contains a certain class.
-The class score is  𝑠𝑐𝑜𝑟𝑒𝑐,𝑖=𝑝𝑐×𝑐𝑖 : the probability that there is an object  𝑝𝑐  times the probability that the object is a certain class  𝑐𝑖 .
+The class score is  𝑠𝑐𝑜𝑟𝑒𝑐,𝑖=𝑝𝑐×𝑐𝑖 : the probability that there is an object  𝑝𝑐  times the probability that the object is a certain class  𝑐𝑖 . And then You're going to first apply a filter by thresholding, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. 
 <img width="825" alt="probability_extraction" src="https://user-images.githubusercontent.com/78735911/161508983-b2b9fe38-9958-49f8-8d28-8616e6ecfc4b.png">
-You're going to first apply a filter by thresholding, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. 
+
 1. First rearrange the (19,19,5,85) (or (19,19,425)) dimensional tensor into the following variables:<br />
 * box_confidence: tensor of shape  (19,19,5,1)  containing  𝑝𝑐  (confidence probability that there's some object) for each of the 5 boxes predicted in each of the 19x19 cells.<br />
 * boxes: tensor of shape  (19,19,5,4)  containing the midpoint and dimensions  (𝑏𝑥,𝑏𝑦,𝑏ℎ,𝑏𝑤)  for each of the 5 boxes in each cell.<br />
 * box_class_probs: tensor of shape  (19,19,5,80)  containing the "class probabilities"  (𝑐1,𝑐2,...𝑐80)  for each of the 80 classes for each of the 5 boxes per cell.<br />
-2. Compute box scores by doing the elementwise product:<br />
+2. Compute box scores by doing the following elementwise product:<br />
 * box_scores = box_confidence*box_class_probs <br />
-For each of the 19x19 grid cells, find the maximum of the probability scores (taking a max across the 80 classes, one maximum for each of the 5 anchor boxes).
-
+3. Use to following function to find the positio and value of the max in box_scores (set axis to -1).<br />
+* box_classes = tf.math.argmax(box_scores,axis=-1)<br />
+* box_class_scores = tf.math.reduce_max(box_scores,axis=-1)<br />
+4. Creating a mask by using a threshold to change the numbers in box_class_scores to boolean  <br />
+* filtering_mask = (box_class_scores>=threshold)<br />
+5. Apply the mask to box_class_scores, boxes and box_classes<br />
+* scores = tf.boolean_mask(box_class_scores,filtering_mask)<br />
+* boxes = tf.boolean_mask(boxes,filtering_mask)<br />
+* classes = tf.boolean_mask(box_classes,filtering_mask)<br />
+ # Srecond filter:Non-max Suppression
 
 
 
