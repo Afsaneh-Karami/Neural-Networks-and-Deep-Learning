@@ -56,6 +56,23 @@ width=max((xi2-xi1),0)<br />
 height=max((yi2-yi1),0)<br />
 inter_area = width * height <br />
 If two boxes have no intersection then the height and width become negative so the max fuction show zero as the maximum value.So, if inter_area how zero value means no intesection. <br />
+* Implement non-max suppression. The key steps are:<br />
+1. Select the box that has the highest score.<br />
+2. Compute the overlap of this box with all other boxes, and remove boxes that overlap significantly (iou >= iou_threshold).<br />
+3. Go back to step 1 and iterate until there are no more boxes with a lower score than the currently selected box.<br />
+This will remove all boxes that have a large overlap with the selected boxes. Only the "best" boxes remain.<br />
+Tensorflow used build-in function non_max_suppression to calculate all the above mentioned stages itself. This function get the list of indices corresponding to boxes that keep.<br />
+* tf.image.non_max_suppression(boxes,scores,max_output_size,iou_threshold=0.5, name=None)
+Gahther function show the indices of refrence matrix 
+* keras.gather( reference,indices)
+ 
+  
+
+  
+  
+  
+ 
+
 
 
 
