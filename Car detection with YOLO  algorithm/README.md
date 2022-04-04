@@ -9,7 +9,12 @@ The order of functions to make YOLO algorithm:<br />
 The input is a batch of images, and each image has the shape (m, 608, 608, 3)<br />
 The output is a list of bounding boxes along with the recognized classes. Each bounding box is represented by 6 numbers (p_c, b_x, b_y, b_h, b_w, c). Where p_c is the probability that there is an object in the grid cell, and b_x, b_y, b_h, b_w indicate the position of bounding box in the grid cell, and c is the probability that the object is a certain class. The classes are 80. If you expand c into an 80-dimensional vector, each bounding box is then represented by 85 numbers. So, the output has tha shape (m, 19, 19, 5, 85).<br />
 * Anchor Boxes:
-Anchor boxes are chosen by exploring the training data to choose reasonable height/width ratios that represent the 80 different classes. So, 5 anchor boxes were chosen which is available in the file '/model_data/yolo_anchors.txt'. (GOTO [zero_pad link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/zero_pad)) 
+Anchor boxes are chosen by exploring the training data to choose reasonable height/width ratios that represent the 80 different classes. So, 5 anchor boxes were chosen which is available in the file 'yolo_anchors.txt'. (GOTO [yolo_anchors link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Car%20detection%20with%20YOLO%20%20algorithm/Datasets)) <br />
+The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85) which is shown in the below picture.<br />
+<img width="824" alt="architecture" src="https://user-images.githubusercontent.com/78735911/161499356-09d1105d-0678-4b80-b05d-1983ef40e8aa.png">
+
+
+
 
 
 
