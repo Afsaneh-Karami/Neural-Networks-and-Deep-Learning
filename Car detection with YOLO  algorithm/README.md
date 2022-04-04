@@ -37,7 +37,7 @@ The class score is  𝑠𝑐𝑜𝑟𝑒𝑐,𝑖=𝑝𝑐×𝑐𝑖 : the proba
 * scores = tf.boolean_mask(box_class_scores,filtering_mask)<br />
 * boxes = tf.boolean_mask(boxes,filtering_mask)<br />
 * classes = tf.boolean_mask(box_classes,filtering_mask)<br />
- ## Srecond filter:Non-max Suppression
+ ## Second filter:Non-max Suppression
  Even after filtering by thresholding over the class scores, you still end up with a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS).<br />
 Non-max suppression uses the very important function called "Intersection over Union", or IoU.<br />
 <img width="667" alt="iou" src="https://user-images.githubusercontent.com/78735911/161514832-92a5344d-83d7-42f8-8e3a-fec71e34bab6.png"><br />
@@ -46,7 +46,18 @@ Some hints:<br />
 * A box is defined in two manner:
 1. using its two corners: upper left  (𝑥1,𝑦1)  and lower right  (𝑥2,𝑦2) .To calculate the area of a rectangle, multiply its height  (𝑦2−𝑦1)  by its width  (𝑥2−𝑥1) . Since  (𝑥1,𝑦1)  is the top left and  𝑥2,𝑦2  are the bottom right, these differences should be non-negative. <br />
 2. using width and height of the box and its center position like (x,y,w,h). This format can change to the first one (GOTO [yolo_boxes_to_corners](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Car%20detection%20with%20YOLO%20%20algorithm))<br /> 
-*  
+*  Calculation of intersection area of two boxes based on first box definition manner:<br />
+finding the coordinate of intersection area:<br />
+xi1 = maximum of the x1 coordinates of the two boxes<br />
+yi1 = maximum of the y1 coordinates of the two boxes<br />
+xi2 = minimum of the x2 coordinates of the two boxes<br />
+yi2 = minimum of the y2 coordinates of the two boxes<br />
+width=max((xi2-xi1),0)<br />
+height=max((yi2-yi1),0)<br />
+inter_area = width * height <br />
+If two boxes have no intersection then the height and width become negative so the max fuction show zero as the maximum value.So, if inter_area how zero value means no intesection. <br />
+
+
 
 
 
