@@ -65,8 +65,8 @@ Tensorflow used build-in function non_max_suppression to calculate all the above
 * tf.image.non_max_suppression(boxes,scores,max_output_size,iou_threshold=0.5, name=None)
 Gahther function show the value of the indices in refrence matrix: 
 * keras.gather( reference,indices)
-# Applying YOLO alghorithm on the trainig set(GOTO [yolo_eval](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_non_max_suppression))<br />:<br />
-
+# Applying YOLO alghorithm on the trainig set(GOTO [yolo_eval](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_eval)):<br />
+Implement yolo_eval() which takes the output of the YOLO encoding and filters the boxes using score threshold and NMS.YOLO's network was trained to run on 608x608 images.
  
   
 
