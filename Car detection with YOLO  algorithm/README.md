@@ -37,7 +37,7 @@ The class score is  𝑠𝑐𝑜𝑟𝑒𝑐,𝑖=𝑝𝑐×𝑐𝑖 : the proba
 * scores = tf.boolean_mask(box_class_scores,filtering_mask)<br />
 * boxes = tf.boolean_mask(boxes,filtering_mask)<br />
 * classes = tf.boolean_mask(box_classes,filtering_mask)<br />
- ## Second filter:Non-max Suppression (GOTO [yolo_non_max_suppression]())<br /> 
+ ## Second filter:Non-max Suppression (GOTO [yolo_non_max_suppression](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_non_max_suppression))<br /> 
  Even after filtering by thresholding over the class scores, you still end up with a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS).<br />
 Non-max suppression uses the very important function called "Intersection over Union", or IoU.<br />
 <img width="667" alt="iou" src="https://user-images.githubusercontent.com/78735911/161514832-92a5344d-83d7-42f8-8e3a-fec71e34bab6.png"><br />
