@@ -1,0 +1,2 @@
+AUTOTUNE = tf.data.experimental.AUTOTUNE
+train_dataset = train_dataset.prefetch(buffer_size=AUTOTUNE)
