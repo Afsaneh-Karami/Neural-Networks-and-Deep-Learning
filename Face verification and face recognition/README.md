@@ -39,6 +39,18 @@ P is a "Positive" image--a picture of the same person as the Anchor image.<br />
 N is a "Negative" image--a picture of a different person than the Anchor image.<br />
 These triplets are picked from the training dataset.  (A(i),P(i),N(i))  is used here to denote the  i -th training example. the distance of 
 You'd like to make sure that an image  𝐴(𝑖)  of an individual is closer to the Positive  𝑃(𝑖)  than to the Negative image  𝑁(𝑖) ) by at least a margin  𝛼. So, you would thus like to minimize the following "triplet cost":
+![Untitled](https://user-images.githubusercontent.com/78735911/162184994-bb32758d-914a-497e-aae3-1fb4c0a29f8b.png)<br />
+Here, the notation " [𝑧]+ " is used to denote  𝑚𝑎𝑥(𝑧,0) .
+* Notes:<br />
+The term (1) is the squared distance between the anchor "A" and the positive "P" for a given triplet; you want this to be small.<br />
+The term (2) is the squared distance between the anchor "A" and the negative "N" for a given triplet, you want this to be relatively large. It has a minus sign preceding it because minimizing the negative of the term is the same as maximizing that term.<br />
+𝛼  is called the margin. It's a hyperparameter that you pick manually. You'll use  𝛼=0.2 .<br />
+Implement the triplet loss (GOTO [who_is_it](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Face%20verification%20and%20face%20recognition/who_is_it)) by 4 steps:<br />
+1. Compute the distance between the encodings of "anchor" and "positive" <br />
+2. Compute the distance between the encodings of "anchor" and "negative" <br />
+3. Compute the formula J per training example <br />
+4. Compute the full formula by taking the max with zero and summing over the training examples <br />
+
 
 
 
