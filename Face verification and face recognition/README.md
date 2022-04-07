@@ -1,16 +1,14 @@
 # Applying Siamese network for face verification and triplet loss for face recognition: <br />
-In Face Verification, you're given two images and you have to determine if they are of the same person.By using an encoding for each image, an element-wise comparison produces a more accurate judgement as to whether two pictures are of the same person.The FaceNet model takes a lot of data and a long time to train. So following the common practice in applied deep learning, you'll load weights that someone else has already trained. The network architecture follows the Inception model from Szegedy et al.
+In Face Verification, you're given two images and you have to determine if they are of the same person or not. In face recognition you compare an input picture with a database of people images and determine if the input image is belong to one person in database or not.<br />
+The FaceNet model takes a lot of data and a long time to train. So I used a pretrained model, I'll load weights that someone else has already trained. The network architecture follows the Inception model from Szegedy et al. By applying this model on your input image you can get a encoding Face Images into a 128-Dimensional Vector(GOTO [Using a ConvNet to Compute Encodings](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Face%20verification%20and%20face%20recognition/Inception_blocks_v2)) <br />
+ Notes about Inception_blocks_v2 neural network: <br />
+* This network uses 160x160 dimensional RGB images as its input. Specifically, a face image (or batch of 𝑚 face images) as a tensor of shape (𝑚,𝑛𝐻,𝑛𝑊,𝑛𝐶)=(𝑚,160,160,3)
+* The output is a matrix of shape (𝑚,128) that encodes each input face image into a 128-dimensional vector.
+## Encoding Face Images into a 128-Dimensional Vector
+As mentioned before I used Inception_blocks_v2 model to get encoding of 128-dimensional vector. The input images are originally of shape 96x96, thus, I need to scale them to 160x160. Loading the model and its pretrained weights.(GOTO [Loading the model](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Face%20verification%20and%20face%20recognition/Loading%20the%20model)) <br />
+To generate the encoding, you'll use img_to_encoding(image_path, model), which runs the forward propagation of the model on the specified image.This is done in the img_to_encoding() function.(GOTO [img_to_encoding](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Face%20verification%20and%20face%20recognition/img_to_encoding)) <br />
+So, an encoding is a good one if:<br />
+The encodings of two images of the same person are quite similar to each other.<br />
+The encodings of two images of different persons are very different.<br />
 
 
-
-In this file, I implemented the YOLO algorithm. An algorithm that uses neural networks to provide real-time object detection. This algorithm is popular because of its speed and accuracy. Its name means "You Only Look Once", This algorithm "only looks once" at the image.  It requires only one forward propagation pass through the network to make predictions. YoLo Algorithm applies some filters such as non-max suppression to output recognized objects together with the bounding boxes.<br /> 
-This Algorithm uses two steps to decrease the number of bounding boxes to the desired amount.<br />
-* First filter: Filtering with a Threshold on Class Scores to eliminate bounding boxes that have low probability or low score 
-* Second filter: Using non-maximum suppression (NMS) for selecting the best boxes
-The order of functions to make the YOLO algorithm:<br />
- ## Model Details<br />
-* Inputs and outputs: 
-The input is a batch of images, and each image has the shape (m, 608, 608, 3)<br />
-The output is a list of bounding boxes along with the recognized classes. Each bounding box is represented by 6 numbers (p_c, b_x, b_y, b_h, b_w, c). Where p_c is the probability that there is an object in the grid cell, b_x, b_y, b_h, b_w indicate the position of the bounding box in the grid cell.  c is the probability that the object belongs to a certain class of the  80 classes. <br />
-* Anchor Boxes:
-Anchor boxes are chosen by exploring the training data to choose reasonable height/width ratios that represent the 80 different classes. So, five anchor boxes were chosen which is available in the file 'yolo_anchors.txt'. (GOTO [yolo_anchors link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Car%20detection%20with%20YOLO%20%20algorithm/Datasets)) <br />
