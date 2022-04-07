@@ -1,2 +1,3 @@
 AUTOTUNE = tf.data.experimental.AUTOTUNE
 train_dataset = train_dataset.prefetch(buffer_size=AUTOTUNE)
+preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
