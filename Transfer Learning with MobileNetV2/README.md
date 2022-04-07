@@ -25,6 +25,28 @@ Each block consists of an inverted residual structure with a bottleneck at each 
 The shortcut connections, which are similar to the ones in traditional residual networks, serve the same purpose of speeding up training and improving predictions. These connections skip over the intermediate convolutions and connect the bottleneck layers. <br />
 6. Train your base model using all the layers from the pretrained model.<br />
 Similarly to how you reused the pretrained normalization values MobileNetV2 was trained on, you'll also load the pretrained weights from ImageNet by specifying weights='imagenet'.(GOTO [main program link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)line 5)<br />
+7. Layer Freezing with the Functional API <br />
+There are three steps:
+a. Delete the top layer (the classification layer)(GOTO [alpaca_model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2))<br />
+* Set include_top in base_model as False
+b. Add a new classifier layer
+* Train only one layer by freezing the rest of the network
+* As mentioned before, a single neuron is enough to solve a binary classification problem.
+c. Freeze the base model and train the newly-created classifier layer
+* Set base model.trainable=False to avoid changing the weights and train only the new layer
+* Set training in base_model to False to avoid keeping track of statistics in the batch norm layer
+7. Create new model using the data_augmentation function defined earlier (GOTO [main program link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)line 6)<br />.
+8. Compile the new model and run it for 5 epochs: (GOTO [main program link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)line 7 until 10)
+9. Plot the training and validation accuracy: (GOTO [main program link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)line 11 until 34)
+### Fine-tuning the Model:(GOTO [Fine-tuning the Model link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2))<br />
+You could try fine-tuning the model by re-running the optimizer in the last layers to improve accuracy. When you use a smaller learning rate, you take smaller steps to adapt it a little more closely to the new data. In transfer learning, the way you achieve this is by unfreezing the layers at the end of the network, and then re-training your model on the final layers with a very low learning rate. Adapting your learning rate to go over these layers in smaller steps can yield more fine details  and higher accuracy.<br />
+
+The intuition for what's happening: when the network is in its earlier stages, it trains on low-level features, like edges. In the later layers, more complex, high-level features like wispy hair or pointy ears begin to emerge. For transfer learning, the low-level features can be kept the same, as they have common features for most images. When you add new data, you generally want the high-level features to adapt to it, which is rather like letting the network learn to detect features more related to your data, such as soft fur or big teeth.<br />
+
+To achieve this, just unfreeze the final layers and re-run the optimizer with a smaller learning rate, while keeping all the other layers frozen.<br />
+
+Where the final layers actually begin is a bit arbitrary, so feel free to play around with this number a bit. The important takeaway is that the later layers are the part of your network that contain the fine details (pointy ears, hairy tails) that are more specific to your problem.<br />
+First, unfreeze the base model by setting base_model.trainable=True, set a layer to fine-tune from, then re-freeze all the layers before it. <br />
 
 
 
