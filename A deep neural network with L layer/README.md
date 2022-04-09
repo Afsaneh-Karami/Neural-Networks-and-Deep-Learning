@@ -11,7 +11,7 @@ The order of functions to make an L-Layer NN model for classification :
 3) Define the size of input, hidden, and output layers (GOTO [layer_sizes link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/predict%20train%20and%20test%20datasets) )(line: 4 )
    * layers_dims = [12288, 20, 7, 5, 1] <br /><br />
 4) Running the L_layer_model fuction which does all forward and backward propagation and gives parameters and costs fuction. (GOTO [L_layer_model](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/A%20deep%20neural%20network%20with%20L%20layer/L_layer_model) )
-   * In the following picture you can see the forward and backward propagation:<br /> 
+   * In the following picture (taken from coursera slides) you can see the forward and backward propagation:<br /> 
 <img width="648" alt="final outline" src="https://user-images.githubusercontent.com/78735911/136697715-dab597cc-5706-47f9-9cde-5684302c3362.png"><br />
    * parameters, costs = L_layer_model (X, Y, layers_dims, learning_rate, num_iterations , print_cost=False)<br />
    * Calculation steps of L_layer_model function including: <br /><br />
