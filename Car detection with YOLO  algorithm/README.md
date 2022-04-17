@@ -17,7 +17,7 @@ For simplicity, you can flatten the last two dimensions of the shape (19, 19, 5,
 
  ## First filter: Filtering with a threshold on class scores (GOTO [yolo_filter_boxes](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_filter_boxes))<br /> 
 * Class score 
-For each box (of each cell) you'll compute the probability that the box contains a certain class, multiplying the probablity of existing of an object in bounding box (𝑝𝑐) by the probability of each classess (𝑐𝑖) 𝑖=𝑝𝑐×𝑐𝑖. Then You're going to apply first filter by a thresholdg, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. In the following you can see steps for applying first filter. <br />
+For each box (of each cell) you'll compute the probability that the box contains a certain class, multiplying the probability of the existence of an object in the bounding box (𝑝𝑐) by the probability of each class (𝑐𝑖) 𝑖=𝑝𝑐×𝑐𝑖. Then You're going to apply the first filter by a threshold, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. In the following you can see steps for applying first filter. <br />
 1. First rearrange the (19,19,5,85) (or (19,19,425)) dimensional tensor into the following variables:<br />
 * box_confidence: tensor of shape  (19,19,5,1)  containing  𝑝𝑐  (confidence probability that there's some object) for each of the 5 boxes predicted in each of the 19x19 cells.<br />
 * boxes: tensor of shape  (19,19,5,4)  containing the midpoint and dimensions  (𝑏𝑥,𝑏𝑦,𝑏ℎ,𝑏𝑤)  for each of the 5 boxes in each cell.<br />
@@ -35,15 +35,14 @@ For each box (of each cell) you'll compute the probability that the box contains
 * classes = tf.boolean_mask(box_classes,filtering_mask)<br />
  ## Second filter:Non-max Suppression (GOTO [yolo_non_max_suppression](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_non_max_suppression))<br /> 
 Even after first filtering, you still end up with a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS).<br />
-Non-max suppression uses the very important function called "Intersection over Union", or IoU.This function make a number by dividing the intersection <br />
-<img width="667" alt="iou" src="https://user-images.githubusercontent.com/78735911/161514832-92a5344d-83d7-42f8-8e3a-fec71e34bab6.png"><br />
+Non-max suppression uses the very important function called "Intersection over Union", or IoU. This function makes a number by dividing the intersection of two boxes by the union of them. <br />
 Some Notes about tha calculation of IoU:<br />
 * This code supposed that (0,0) is the top-left corner of an bounding box, (1,0) is the upper-right corner, and (1,1) is the lower-right corner. In other words, the (0,0) origin starts at the top left corner of the image. As x increases, you move to the right. As y increases, you move down.
 * A box is defined in two manner:
 1. using its two corners: upper left  (𝑥1,𝑦1)  and lower right  (𝑥2,𝑦2) .To calculate the area of a rectangle, multiply its height  (𝑦2−𝑦1)  by its width  (𝑥2−𝑥1). Since  (𝑥1,𝑦1)  is the top left and  (𝑥2,𝑦2)  are the bottom right, these differences should be non-negative. <br />
 2. using width and height of the box and its center position like (x,y,w,h). This format can change to the first one (GOTO [yolo_boxes_to_corners](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Car%20detection%20with%20YOLO%20%20algorithm))<br /> 
 *  Calculation of intersection area of two boxes based on the first box definition manner:<br />
-finding the coordinate of intersection area:<br />
+Finding the coordinate of intersection area:<br />
 xi1 = maximum of the x1 coordinates of the two boxes<br />
 yi1 = maximum of the y1 coordinates of the two boxes<br />
 xi2 = minimum of the x2 coordinates of the two boxes<br />
