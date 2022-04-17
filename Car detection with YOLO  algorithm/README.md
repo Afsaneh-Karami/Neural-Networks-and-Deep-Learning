@@ -14,12 +14,10 @@ Anchor boxes are chosen by reasonable height/width ratios that can represent the
 The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85).<br />
 Since you're using 5 anchor boxes, each of the 19 x19 cells contains information about 5 boxes. Anchor boxes are defined only by their width and height.
 For simplicity, you can flatten the last two dimensions of the shape (19, 19, 5, 85) encoding, so the output of the Deep CNN is (19, 19, 425).<br />
-<img width="791" alt="flatten" src="https://user-images.githubusercontent.com/78735911/161508295-7041650c-f266-4e0c-adf9-1ad3578fb98a.png"><br /><br />
 
  ## First filter: Filtering with a threshold on class scores (GOTO [yolo_filter_boxes](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_filter_boxes))<br /> 
 * Class score 
-For each box (of each cell) you'll compute the probability that the box contains a certain class, multiplying the probablity of existing of an object in bounding box (𝑝𝑐) by the probability of each classess (𝑐𝑖) 𝑖=𝑝𝑐×𝑐𝑖. Then You're going to apply first filter by a thresholdg, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. 
-
+For each box (of each cell) you'll compute the probability that the box contains a certain class, multiplying the probablity of existing of an object in bounding box (𝑝𝑐) by the probability of each classess (𝑐𝑖) 𝑖=𝑝𝑐×𝑐𝑖. Then You're going to apply first filter by a thresholdg, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. In the following you can see steps for applying first filter. <br />
 1. First rearrange the (19,19,5,85) (or (19,19,425)) dimensional tensor into the following variables:<br />
 * box_confidence: tensor of shape  (19,19,5,1)  containing  𝑝𝑐  (confidence probability that there's some object) for each of the 5 boxes predicted in each of the 19x19 cells.<br />
 * boxes: tensor of shape  (19,19,5,4)  containing the midpoint and dimensions  (𝑏𝑥,𝑏𝑦,𝑏ℎ,𝑏𝑤)  for each of the 5 boxes in each cell.<br />
@@ -36,8 +34,8 @@ For each box (of each cell) you'll compute the probability that the box contains
 * boxes = tf.boolean_mask(boxes,filtering_mask)<br />
 * classes = tf.boolean_mask(box_classes,filtering_mask)<br />
  ## Second filter:Non-max Suppression (GOTO [yolo_non_max_suppression](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_non_max_suppression))<br /> 
- Even after filtering by thresholding over the class scores, you still end up with a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS).<br />
-Non-max suppression uses the very important function called "Intersection over Union", or IoU.<br />
+Even after first filtering, you still end up with a lot of overlapping boxes. A second filter for selecting the right boxes is called non-maximum suppression (NMS).<br />
+Non-max suppression uses the very important function called "Intersection over Union", or IoU.This function make a number by dividing the intersection <br />
 <img width="667" alt="iou" src="https://user-images.githubusercontent.com/78735911/161514832-92a5344d-83d7-42f8-8e3a-fec71e34bab6.png"><br />
 Some Notes about tha calculation of IoU:<br />
 * This code supposed that (0,0) is the top-left corner of an bounding box, (1,0) is the upper-right corner, and (1,1) is the lower-right corner. In other words, the (0,0) origin starts at the top left corner of the image. As x increases, you move to the right. As y increases, you move down.
