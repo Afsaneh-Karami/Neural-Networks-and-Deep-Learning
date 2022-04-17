@@ -1,19 +1,18 @@
 # Applying YOLO algorithm (You Only Look Once) to detect cars in the images<br />
 
-In this file, I implemented the YOLO algorithm. An algorithm that uses neural networks to provide real-time object detection. This algorithm is popular because of its speed and accuracy. Its name means "You Only Look Once", This algorithm "only looks once" at the image.  It requires only one forward propagation pass through the network to make predictions. YoLo Algorithm applies some filters such as non-max suppression to output recognized objects together with the bounding boxes.<br /> 
+In this file, I implemented the YOLO algorithm. An algorithm that uses neural networks to detect the object in the input image. The reputation of This algorithm is because of its speed and accuracy. Its name means "You Only Look Once", This algorithm "only looks once" at the image, only one forward propagation pass through the network is enough to make predictions. YoLo Algorithm applies some filters such as non-max suppression to output recognized objects together with the bounding boxes. After fitting the neural network model to the input image, there are lots of bounding boxes for each object with different probabilities, so some filters like non-max suppression are used to find the best bounding box that encompasses the object. <br /> 
 This Algorithm uses two steps to decrease the number of bounding boxes to the desired amount.<br />
-* First filter: Filtering with a Threshold on Class Scores to eliminate bounding boxes that have low probability or low score 
-* Second filter: Using non-maximum suppression (NMS) for selecting the best boxes
+* First filter: Filtering with a threshold on class scores to eliminate bounding boxes with low probability or low score 
+* Second filter: Using non-maximum suppression (NMS) for choosing the best boxes
 The order of functions to make the YOLO algorithm:<br />
  ## Model Details<br />
 * Inputs and outputs: 
-The input is a batch of images, and each image has the shape (m, 608, 608, 3)<br />
-The output is a list of bounding boxes along with the recognized classes. Each bounding box is represented by 6 numbers (p_c, b_x, b_y, b_h, b_w, c). Where p_c is the probability that there is an object in the grid cell, b_x, b_y, b_h, b_w indicate the position of the bounding box in the grid cell.  c is the probability that the object belongs to a certain class of the  80 classes. <br />
+The input is a batch of images with the shape (m, 608, 608, 3)<br />
+The output is a list of bounding boxes for objects and the classification of objects. Each bounding box is represented by six numbers (p_c, b_x, b_y, b_h, b_w, c). Where p_c is the probability that there is an object in the grid cell, b_x, b_y, b_h, b_w indicate the position of the bounding box in the grid cell. c is the probability that the object belongs to a certain class of the  80 classes. <br />
 * Anchor Boxes:
-Anchor boxes are chosen by exploring the training data to choose reasonable height/width ratios that represent the 80 different classes. So, five anchor boxes were chosen which is available in the file 'yolo_anchors.txt'. (GOTO [yolo_anchors link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Car%20detection%20with%20YOLO%20%20algorithm/Datasets)) <br />
-The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85) which is shown in the below picture.<br />
-<img width="824" alt="architecture" src="https://user-images.githubusercontent.com/78735911/161499356-09d1105d-0678-4b80-b05d-1983ef40e8aa.png">
-Since you're using 5 anchor boxes, each of the 19 x19 cells thus encodes information about 5 boxes. Anchor boxes are defined only by their width and height.
+Anchor boxes are chosen by reasonable height/width ratios that can represent the 80 different classes. So, five anchor boxes were chosen which is available in the file 'yolo_anchors.txt'. (GOTO [yolo_anchors link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/tree/main/Car%20detection%20with%20YOLO%20%20algorithm/Datasets)) <br />
+The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85).<br />
+Since you're using 5 anchor boxes, each of the 19 x19 cells contains information about 5 boxes. Anchor boxes are defined only by their width and height.
 For simplicity, you can flatten the last two dimensions of the shape (19, 19, 5, 85) encoding, so the output of the Deep CNN is (19, 19, 425).<br />
 <img width="791" alt="flatten" src="https://user-images.githubusercontent.com/78735911/161508295-7041650c-f266-4e0c-adf9-1ad3578fb98a.png"><br /><br />
 
