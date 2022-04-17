@@ -1,18 +1,18 @@
 # Using transfer learning on a pre-trained CNN to build an Alpaca/Not Alpaca classifier:
 Transfer learning means using a pre-train model for another problem that is different but related. Two problems have some common features. In this code, I used a pre-trained CNN named MobileNetV2 to classify an Alpaca/Not Alpaca images. The MobileNetV2 is fast and efficient for this classification. It's been pre-trained on ImageNet, a dataset containing over 14 million images and 1000 classes. <br />
 The order of functions to make transfer learning on a pre-trained CNN:<br />
-1. Create the Dataset and Split it into Training and Validation Sets (GOTO [Create Dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Transfer%20Learning%20with%20MobileNetV2/Create%20Dataset))<br /><br />
+1. Create the dataset and split it into training and validation sets (GOTO [Create Dataset link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Transfer%20Learning%20with%20MobileNetV2/Create%20Dataset))<br /><br />
 2. Using dataset.prefetch for data preprocessing (GOTO [main program link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)lines 2, and 3)<br /> <br />
 Note: 
 * Using prefetch() prevents a memory bottleneck that can occur when reading from disk. It sets aside some data and keeps it ready for when it's needed, by creating a source dataset from your input data, applying a transformation to preprocess it, then iterating over the dataset one element at a time. Because the iteration is streaming, the data doesn't need to fit into memory.<br /> 
 * You can set the number of elements to prefetch manually, or you can use tf.data.experimental.AUTOTUNE to choose the parameters automatically. <br /><br /> 
 3. Data augmentation (GOTO [data_augmenter link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)):<br /> 
-Implement a function for data augmentation. Use a Sequential keras model composed of 2 layers:<br /> 
+Implement a function for data augmentation. Use a Sequential keras model composed of:<br /> 
 * RandomFlip('horizontal')<br /> 
 * RandomRotation(0.2)<br /> <br />
 4. Apply the first tool from the MobileNet application in TensorFlow, to normalize input.<br /> 
 Since I am using a pre-trained model that was trained on the normalization values [-1,1], it's best practice to reuse that standard with tf.keras.applications.mobilenet_v2.preprocess_input. (GOTO [main program link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/new/main/Transfer%20Learning%20with%20MobileNetV2)line 4)<br /> <br />
-5. Using MobileNetV2 for Transfer Learning<br />
+5. Using MobileNetV2 model for Transfer Learning<br />
 MobileNetV2 was trained on ImageNet and is optimized to run on mobile and other low-power applications. It's 155 layers deep and very efficient for object detection and image segmentation tasks, as well as classification tasks like this one. The architecture has three defining characteristics:<br /> 
 * Depthwise separable convolutions<br />
 * Thin input and output bottlenecks between layers<br />
