@@ -4,18 +4,14 @@ In this file, I implemented convolutional (CONV) and pooling (POOL) layers in Nu
 The order of functions to make CONV and POOL filters:<br />
  A convolution layer transforms an input volume into an output volume of different sizes.<br /><br />
 1. zero-padding adds zeros around the border of an image. The padding is applied to the height and width of an image, as illustrated below. (GOTO [zero_pad link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/zero_pad)) <br />
- The main benefits of padding are: <br />
-a. It allows you to use a CONV layer without necessarily shrinking the height and width of the volumes. This is important for building deeper networks since otherwise the 
-  height/width would shrink as you go to deeper layers.<br />   
+The main benefits of padding are: <br />
+a. It allows you to use a CONV layer without necessarily shrinking the height and width of the volumes. This is important factor in deep networks since otherwise the height/width would shrink as you go to deeper layers.<br />   
 b. It helps us keep more of the information at the border of an image. Without padding, very few values at the next layer would be affected by pixels at the edges of an image.<br /> 
  X is a python NumPy array of shapes (m, n_H, n_W, n_C) so padding should influence n_H and n_W:<br />  
  X_pad =np.pad(X,((0,0),( pad,pad),( pad, pad),(0,0)),mode='constant', constant_values = (0,0))<br /><br />
 2. Single Step of Convolution <br />
  Apply one filter defined by parameters W on a single slice (a_slice_prev) of the output activation 
- of the previous layer. 
- 
-![Convolution_schematic](https://user-images.githubusercontent.com/78735911/144194485-20728af7-df66-499c-9b6e-2c59582370d0.gif)<br />
-(GOTO [Single Step of Convolution link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/Single%20Step%20of%20Convolution))<br /><br />
+ of the previous layer.(GOTO [Single Step of Convolution link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/Single%20Step%20of%20Convolution))<br /><br /> 
 3. Convolutional Neural Networks - Forward Pass (GOTO [Convolutional Neural Networks - Forward Pass link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Convolutional%20Neural%20Network/Convolutional%20Neural%20Networks%20-%20Forward%20Pass)) <br />
 In the forward pass, you will take many filters and convolve them on the input. Each 'convolution' gives you a 2D matrix output. You will then stack these outputs to get a 3D volume.
 The formulas relating the output shape of the convolution to the input shape are:
