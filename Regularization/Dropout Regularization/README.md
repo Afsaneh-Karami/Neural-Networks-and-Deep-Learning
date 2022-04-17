@@ -4,7 +4,6 @@ In this file, I used Neural Network (NN) with two hidden layers to classify blue
 Note 1: With dropout what we do is go through each of layers of the network and set some probability of eliminating a node in network. in this way we demolished network and have much smaller NN. So, reducing  the probability of overfitting.<br />
 Note 2: The keep_prob for input layer is 1, because we do not want to lose the input information.<br />
 Note 3: Not use drop out at test time because we do not want our output to be random (keep_prob=1).<br />
-![Capture](https://user-images.githubusercontent.com/78735911/137906920-87d2585c-ca4a-47bf-91e4-2f8c7832d352.JPG)
 
 The order of functions to make an L-Layer NN model with Dropout Regularization for classification <br /> (GOTO [prediction_DropoutRegularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/Dropout%20Regularization/prediction_DropoutRegularization)):
 
