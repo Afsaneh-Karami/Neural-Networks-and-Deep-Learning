@@ -18,9 +18,7 @@ For simplicity, you can flatten the last two dimensions of the shape (19, 19, 5,
 
  ## First filter: Filtering with a threshold on class scores (GOTO [yolo_filter_boxes](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Car%20detection%20with%20YOLO%20%20algorithm/yolo_filter_boxes))<br /> 
 * Class score 
-Now, for each box (of each cell) you'll compute the following element-wise product and extract a probability that the box contains a certain class.
-The class score is  equal 𝑖=𝑝𝑐×𝑐𝑖. Which is the probability that there is an object  𝑝𝑐  times the probability that the object is a certain class  𝑐𝑖 . Then You're going to apply first filter by a thresholdg, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. 
-<img width="825" alt="probability_extraction" src="https://user-images.githubusercontent.com/78735911/161508983-b2b9fe38-9958-49f8-8d28-8616e6ecfc4b.png">
+For each box (of each cell) you'll compute the probability that the box contains a certain class, multiplying the probablity of existing of an object in bounding box (𝑝𝑐) by the probability of each classess (𝑐𝑖) 𝑖=𝑝𝑐×𝑐𝑖. Then You're going to apply first filter by a thresholdg, meaning you'll get rid of any box for which the class "score" is less than a chosen threshold. 
 
 1. First rearrange the (19,19,5,85) (or (19,19,425)) dimensional tensor into the following variables:<br />
 * box_confidence: tensor of shape  (19,19,5,1)  containing  𝑝𝑐  (confidence probability that there's some object) for each of the 5 boxes predicted in each of the 19x19 cells.<br />
