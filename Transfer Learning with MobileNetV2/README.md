@@ -19,7 +19,7 @@ MobileNetV2 was trained on ImageNet and is optimized to run on mobile and other 
 * Shortcut connections between bottleneck layers<br />
 MobileNetV2 uses depthwise separable convolutions as efficient building blocks. Traditional convolutions are often very resource-intensive, and depthwise separable convolutions can reduce the number of trainable parameters and operations and also speed up convolutions in two steps:<br />
 a. The first step calculates an intermediate result by convolving each of the channels independently. This is the depthwise convolution.<br /> 
-b. In the second step, another convolution merges the outputs of the previous step into one. This gets a single result from a single feature at a time and then is applied to all the filters in the output layer. This is the pointwise convolution, or: Shape of the depthwise convolution X Number of filters.<br />
+b. In the second step, another convolution merges the outputs of the previous step into one. This gets a single result from a single feature at a time and then is applied to all the filters in the output layer. This is the pointwise convolution.<br />
 Each block consists of an inverted residual structure with a bottleneck at each end. These bottlenecks encode the intermediate inputs and outputs in a low-dimensional space and prevent non-linearities from destroying important information.<br />
 The shortcut connections, which are similar to the ones in traditional residual networks, serve the same purpose of speeding up training and improving predictions. These connections skip over the intermediate convolutions and connect the bottleneck layers. <br /><br />
 6. Train the base model by using all the layers from the pre-trained model.<br />
