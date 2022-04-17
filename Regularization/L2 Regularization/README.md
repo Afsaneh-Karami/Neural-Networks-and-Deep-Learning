@@ -2,9 +2,6 @@
 
 In this file, I used Neural Network (NN) with two hidden layers to classify blue and red dots in the following picture. In order to avoid overfitting, I applied L2 regularization.  File "data.mat" was used as training and test datasets. I used train datasets to choose the parameters W and b of the NN model. The model was applied to train and test datasets to classify colorful dots. File "data.mat" is in Datasets folder. I wrote my code in Jupyter notebook.<br />
 Note : With L2 Regularization what we do is penelize the weight matrices from being too large. In this way reducing  the probability of overfitting.<br />
-
-![Capture](https://user-images.githubusercontent.com/78735911/137906920-87d2585c-ca4a-47bf-91e4-2f8c7832d352.JPG)
-
 The order of functions to make an L-Layer NN model with L2 Regularization for classification <br /> (GOTO [prediction_L2Regularization link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/L2%20Regularization/prediction_L2Regularization)):
 
 1) Begin by importing required packages (GOTO [package link](https://github.com/Afsaneh-Karami/Neural-Networks-and-Deep-Learning/blob/main/Regularization/import%20package))<br /><br />
